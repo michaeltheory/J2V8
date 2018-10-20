@@ -39,9 +39,9 @@ public class PlatformDetector {
             final String archProperty = System.getProperty("os.arch");
             final String archName = normalizeArch(archProperty);
 
-            if (archName.equals(Platform.UNKNOWN)) {
-                throw new UnsatisfiedLinkError("Unsupported arch: " + archProperty);
-            }
+            // if (archName.equals(Platform.UNKNOWN)) {
+            //     throw new UnsatisfiedLinkError("Unsupported arch: " + archProperty);
+            // }
 
             return archName;
         }

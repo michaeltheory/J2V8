@@ -1,0 +1,280 @@
+2018-10-20 04:09:25,317 CRIT Supervisor running as root (no user in config file)
+2018-10-20 04:09:25,328 INFO supervisord started with pid 29240
+2018-10-20 04:09:26,332 INFO spawned: 'tests' with pid 29243
+2018-10-20 04:09:26,335 INFO spawned: 'tests' with pid 29244
+2018-10-20 04:09:26,339 INFO spawned: 'emulator' with pid 29245
+2018-10-20 04:09:26,342 INFO spawned: 'logcat' with pid 29246
+2018-10-20 04:09:26,347 INFO spawned: 'tests' with pid 29247
+2018-10-20 04:09:26,349 INFO spawned: 'emulator' with pid 29248
+2018-10-20 04:09:26,369 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:09:26,369 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:09:26,370 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:09:27,330 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:09:28,333 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:09:28,334 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:25:20,132 CRIT Supervisor running as root (no user in config file)
+2018-10-20 04:25:20,138 INFO supervisord started with pid 477
+2018-10-20 04:25:21,144 INFO spawned: 'tests' with pid 480
+2018-10-20 04:25:21,146 INFO spawned: 'tests' with pid 481
+2018-10-20 04:25:21,148 INFO spawned: 'emulator' with pid 482
+2018-10-20 04:25:21,158 INFO spawned: 'logcat' with pid 483
+2018-10-20 04:25:21,162 INFO spawned: 'tests' with pid 484
+2018-10-20 04:25:21,164 INFO spawned: 'emulator' with pid 485
+2018-10-20 04:25:21,167 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:25:21,168 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:25:21,172 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:25:23,062 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:25:23,063 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:25:23,063 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:33:58,726 CRIT Supervisor running as root (no user in config file)
+2018-10-20 04:33:58,736 INFO supervisord started with pid 476
+2018-10-20 04:33:59,740 INFO spawned: 'tests' with pid 479
+2018-10-20 04:33:59,744 INFO spawned: 'tests' with pid 480
+2018-10-20 04:33:59,746 INFO spawned: 'emulator' with pid 481
+2018-10-20 04:33:59,748 INFO spawned: 'logcat' with pid 482
+2018-10-20 04:33:59,754 INFO spawned: 'tests' with pid 483
+2018-10-20 04:33:59,756 INFO spawned: 'emulator' with pid 484
+2018-10-20 04:33:59,770 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:33:59,770 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:33:59,772 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:34:01,661 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:34:01,661 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:34:01,662 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:41:15,947 CRIT Supervisor running as root (no user in config file)
+2018-10-20 04:41:15,955 INFO supervisord started with pid 476
+2018-10-20 04:41:16,958 INFO spawned: 'tests' with pid 479
+2018-10-20 04:41:16,961 INFO spawned: 'tests' with pid 480
+2018-10-20 04:41:16,964 INFO spawned: 'emulator' with pid 481
+2018-10-20 04:41:16,969 INFO spawned: 'logcat' with pid 482
+2018-10-20 04:41:16,975 INFO spawned: 'tests' with pid 483
+2018-10-20 04:41:16,978 INFO spawned: 'emulator' with pid 484
+2018-10-20 04:41:17,006 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:41:17,008 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:41:17,009 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:41:18,688 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:41:18,690 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:41:18,694 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:49:02,827 CRIT Supervisor running as root (no user in config file)
+2018-10-20 04:49:02,830 INFO supervisord started with pid 476
+2018-10-20 04:49:03,834 INFO spawned: 'tests' with pid 479
+2018-10-20 04:49:03,838 INFO spawned: 'tests' with pid 480
+2018-10-20 04:49:03,840 INFO spawned: 'emulator' with pid 481
+2018-10-20 04:49:03,842 INFO spawned: 'logcat' with pid 482
+2018-10-20 04:49:03,849 INFO spawned: 'tests' with pid 483
+2018-10-20 04:49:03,851 INFO spawned: 'emulator' with pid 484
+2018-10-20 04:49:03,869 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:49:03,871 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:49:03,872 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:49:05,827 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:49:05,828 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:49:05,828 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:54:22,824 CRIT Supervisor running as root (no user in config file)
+2018-10-20 04:54:22,832 INFO supervisord started with pid 476
+2018-10-20 04:54:23,839 INFO spawned: 'tests' with pid 479
+2018-10-20 04:54:23,843 INFO spawned: 'tests' with pid 480
+2018-10-20 04:54:23,845 INFO spawned: 'emulator' with pid 481
+2018-10-20 04:54:23,847 INFO spawned: 'logcat' with pid 482
+2018-10-20 04:54:23,854 INFO spawned: 'tests' with pid 483
+2018-10-20 04:54:23,857 INFO spawned: 'emulator' with pid 484
+2018-10-20 04:54:23,892 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:54:23,893 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:54:23,893 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:54:24,892 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:54:24,893 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:54:24,894 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:57:50,716 CRIT Supervisor running as root (no user in config file)
+2018-10-20 04:57:50,723 INFO supervisord started with pid 476
+2018-10-20 04:57:51,728 INFO spawned: 'tests' with pid 479
+2018-10-20 04:57:51,731 INFO spawned: 'tests' with pid 480
+2018-10-20 04:57:51,733 INFO spawned: 'emulator' with pid 481
+2018-10-20 04:57:51,735 INFO spawned: 'logcat' with pid 482
+2018-10-20 04:57:51,737 INFO spawned: 'tests' with pid 483
+2018-10-20 04:57:51,741 INFO spawned: 'emulator' with pid 484
+2018-10-20 04:57:51,755 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:57:51,756 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:57:51,757 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 04:57:53,546 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:57:53,547 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 04:57:53,547 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:02:19,977 CRIT Supervisor running as root (no user in config file)
+2018-10-20 05:02:19,983 INFO supervisord started with pid 477
+2018-10-20 05:02:20,990 INFO spawned: 'tests' with pid 480
+2018-10-20 05:02:20,992 INFO spawned: 'tests' with pid 481
+2018-10-20 05:02:20,995 INFO spawned: 'emulator' with pid 482
+2018-10-20 05:02:20,997 INFO spawned: 'logcat' with pid 483
+2018-10-20 05:02:21,000 INFO spawned: 'tests' with pid 484
+2018-10-20 05:02:21,005 INFO spawned: 'emulator' with pid 485
+2018-10-20 05:02:21,023 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:02:21,023 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:02:21,024 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:02:21,992 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:02:21,993 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:02:21,994 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:09:58,647 CRIT Supervisor running as root (no user in config file)
+2018-10-20 05:09:58,657 INFO supervisord started with pid 476
+2018-10-20 05:09:59,663 INFO spawned: 'tests' with pid 479
+2018-10-20 05:09:59,668 INFO spawned: 'tests' with pid 480
+2018-10-20 05:09:59,670 INFO spawned: 'emulator' with pid 481
+2018-10-20 05:09:59,672 INFO spawned: 'logcat' with pid 482
+2018-10-20 05:09:59,674 INFO spawned: 'tests' with pid 483
+2018-10-20 05:09:59,677 INFO spawned: 'emulator' with pid 484
+2018-10-20 05:09:59,693 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:09:59,695 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:09:59,695 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:10:01,664 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:10:01,665 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:10:01,666 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:14:51,103 CRIT Supervisor running as root (no user in config file)
+2018-10-20 05:14:51,111 INFO supervisord started with pid 476
+2018-10-20 05:14:52,094 INFO spawned: 'tests' with pid 479
+2018-10-20 05:14:52,096 INFO spawned: 'tests' with pid 480
+2018-10-20 05:14:52,099 INFO spawned: 'emulator' with pid 481
+2018-10-20 05:14:52,101 INFO spawned: 'logcat' with pid 482
+2018-10-20 05:14:52,104 INFO spawned: 'tests' with pid 483
+2018-10-20 05:14:52,106 INFO spawned: 'emulator' with pid 484
+2018-10-20 05:14:52,123 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:14:52,123 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:14:52,124 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:14:54,007 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:14:54,008 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:14:54,009 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:17:47,998 CRIT Supervisor running as root (no user in config file)
+2018-10-20 05:17:48,012 INFO supervisord started with pid 476
+2018-10-20 05:17:49,018 INFO spawned: 'tests' with pid 479
+2018-10-20 05:17:49,021 INFO spawned: 'tests' with pid 480
+2018-10-20 05:17:49,023 INFO spawned: 'emulator' with pid 481
+2018-10-20 05:17:49,025 INFO spawned: 'logcat' with pid 482
+2018-10-20 05:17:49,027 INFO spawned: 'tests' with pid 483
+2018-10-20 05:17:49,029 INFO spawned: 'emulator' with pid 484
+2018-10-20 05:17:49,056 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:17:49,057 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:17:49,058 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:17:50,926 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:17:50,926 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:17:50,927 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:20:27,970 CRIT Supervisor running as root (no user in config file)
+2018-10-20 05:20:27,976 INFO supervisord started with pid 476
+2018-10-20 05:20:28,980 INFO spawned: 'tests' with pid 479
+2018-10-20 05:20:28,982 INFO spawned: 'tests' with pid 480
+2018-10-20 05:20:28,984 INFO spawned: 'emulator' with pid 481
+2018-10-20 05:20:28,987 INFO spawned: 'logcat' with pid 482
+2018-10-20 05:20:28,995 INFO spawned: 'tests' with pid 483
+2018-10-20 05:20:29,001 INFO spawned: 'emulator' with pid 484
+2018-10-20 05:20:29,018 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:20:29,021 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:20:29,023 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:20:30,004 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:20:30,005 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:20:30,005 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:24:47,365 CRIT Supervisor running as root (no user in config file)
+2018-10-20 05:24:47,375 INFO supervisord started with pid 476
+2018-10-20 05:24:48,379 INFO spawned: 'tests' with pid 479
+2018-10-20 05:24:48,384 INFO spawned: 'tests' with pid 480
+2018-10-20 05:24:48,386 INFO spawned: 'emulator' with pid 481
+2018-10-20 05:24:48,388 INFO spawned: 'logcat' with pid 482
+2018-10-20 05:24:48,390 INFO spawned: 'tests' with pid 483
+2018-10-20 05:24:48,392 INFO spawned: 'emulator' with pid 484
+2018-10-20 05:24:48,420 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:24:48,421 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:24:48,422 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:24:50,303 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:24:50,303 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:24:50,304 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:27:47,180 CRIT Supervisor running as root (no user in config file)
+2018-10-20 05:27:47,191 INFO supervisord started with pid 476
+2018-10-20 05:27:48,195 INFO spawned: 'tests' with pid 479
+2018-10-20 05:27:48,199 INFO spawned: 'tests' with pid 480
+2018-10-20 05:27:48,201 INFO spawned: 'emulator' with pid 481
+2018-10-20 05:27:48,203 INFO spawned: 'logcat' with pid 482
+2018-10-20 05:27:48,205 INFO spawned: 'tests' with pid 483
+2018-10-20 05:27:48,209 INFO spawned: 'emulator' with pid 484
+2018-10-20 05:27:48,226 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:27:48,227 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:27:48,230 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:27:50,058 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:27:50,059 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:27:50,060 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:31:29,831 CRIT Supervisor running as root (no user in config file)
+2018-10-20 05:31:29,835 INFO supervisord started with pid 477
+2018-10-20 05:31:30,839 INFO spawned: 'tests' with pid 480
+2018-10-20 05:31:30,842 INFO spawned: 'tests' with pid 481
+2018-10-20 05:31:30,844 INFO spawned: 'emulator' with pid 482
+2018-10-20 05:31:30,846 INFO spawned: 'logcat' with pid 483
+2018-10-20 05:31:30,848 INFO spawned: 'tests' with pid 484
+2018-10-20 05:31:30,850 INFO spawned: 'emulator' with pid 485
+2018-10-20 05:31:30,871 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:31:30,871 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:31:30,872 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:31:32,657 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:31:32,658 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:31:32,659 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:34:51,341 CRIT Supervisor running as root (no user in config file)
+2018-10-20 05:34:51,346 INFO supervisord started with pid 476
+2018-10-20 05:34:52,350 INFO spawned: 'tests' with pid 479
+2018-10-20 05:34:52,363 INFO spawned: 'tests' with pid 480
+2018-10-20 05:34:52,366 INFO spawned: 'emulator' with pid 481
+2018-10-20 05:34:52,370 INFO spawned: 'logcat' with pid 482
+2018-10-20 05:34:52,372 INFO spawned: 'tests' with pid 483
+2018-10-20 05:34:52,374 INFO spawned: 'emulator' with pid 484
+2018-10-20 05:34:52,377 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:34:52,379 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:34:52,383 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:34:53,373 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:34:53,374 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:34:53,375 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:37:36,510 CRIT Supervisor running as root (no user in config file)
+2018-10-20 05:37:36,520 INFO supervisord started with pid 476
+2018-10-20 05:37:37,522 INFO spawned: 'tests' with pid 479
+2018-10-20 05:37:37,524 INFO spawned: 'tests' with pid 480
+2018-10-20 05:37:37,526 INFO spawned: 'emulator' with pid 481
+2018-10-20 05:37:37,529 INFO spawned: 'logcat' with pid 482
+2018-10-20 05:37:37,535 INFO spawned: 'tests' with pid 483
+2018-10-20 05:37:37,537 INFO spawned: 'emulator' with pid 484
+2018-10-20 05:37:37,552 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:37:37,553 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:37:37,553 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:37:39,417 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:37:39,417 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:37:39,418 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:42:18,653 CRIT Supervisor running as root (no user in config file)
+2018-10-20 05:42:18,658 INFO supervisord started with pid 477
+2018-10-20 05:42:19,662 INFO spawned: 'tests' with pid 480
+2018-10-20 05:42:19,664 INFO spawned: 'tests' with pid 481
+2018-10-20 05:42:19,667 INFO spawned: 'emulator' with pid 482
+2018-10-20 05:42:19,676 INFO spawned: 'logcat' with pid 483
+2018-10-20 05:42:19,679 INFO spawned: 'tests' with pid 484
+2018-10-20 05:42:19,683 INFO spawned: 'emulator' with pid 485
+2018-10-20 05:42:19,700 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:42:19,700 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:42:19,701 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:42:20,664 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:42:20,665 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:42:20,666 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:44:48,946 CRIT Supervisor running as root (no user in config file)
+2018-10-20 05:44:48,950 INFO supervisord started with pid 477
+2018-10-20 05:44:49,956 INFO spawned: 'tests' with pid 480
+2018-10-20 05:44:49,960 INFO spawned: 'tests' with pid 481
+2018-10-20 05:44:49,963 INFO spawned: 'emulator' with pid 482
+2018-10-20 05:44:49,965 INFO spawned: 'logcat' with pid 483
+2018-10-20 05:44:49,972 INFO spawned: 'tests' with pid 484
+2018-10-20 05:44:49,975 INFO spawned: 'emulator' with pid 485
+2018-10-20 05:44:49,991 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:44:49,991 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:44:49,992 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:44:51,002 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:44:51,005 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:44:51,006 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:52:10,061 CRIT Supervisor running as root (no user in config file)
+2018-10-20 05:52:10,066 INFO supervisord started with pid 477
+2018-10-20 05:52:11,070 INFO spawned: 'tests' with pid 480
+2018-10-20 05:52:11,072 INFO spawned: 'tests' with pid 481
+2018-10-20 05:52:11,076 INFO spawned: 'emulator' with pid 482
+2018-10-20 05:52:11,087 INFO spawned: 'logcat' with pid 483
+2018-10-20 05:52:11,090 INFO spawned: 'tests' with pid 484
+2018-10-20 05:52:11,093 INFO spawned: 'emulator' with pid 485
+2018-10-20 05:52:11,126 INFO success: logcat entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:52:11,127 INFO success: tests entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:52:11,129 INFO success: emulator entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2018-10-20 05:52:12,185 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:52:12,187 INFO success: tests entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2018-10-20 05:52:12,188 INFO success: emulator entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
