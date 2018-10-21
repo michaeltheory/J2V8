@@ -482,7 +482,7 @@ JNIEXPORT jlong JNICALL Java_com_eclipsesource_v8_V8__1createIsolate
   }
 
   delete(runtime->locker);
-  initializeAura(runtime->isolate, runtime->globalObject, context_);
+  initializeAura(runtime);
   return reinterpret_cast<jlong>(runtime);
 }
 

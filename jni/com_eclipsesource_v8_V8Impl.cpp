@@ -167,6 +167,8 @@ int isUndefined(JNIEnv* env, jobject object) {
   return env->CallBooleanMethod(object, v8ObjectIsUndefinedMethodID);
 }
 
+v8::Isolate* isolate_;
+
 // #define BAD_PARAMETER_TYPE(x) x->ThrowException(v8::Exception::Error(String::NewFromUtf8(x, "Bad parameter type")))
 // bool CHECK_GL_ERRORS = true;
 
@@ -177,8 +179,8 @@ int isUndefined(JNIEnv* env, jobject object) {
 //   } \
 // }
 
-// void v8Bind_ActiveTexture (const v8::FunctionCallbackInfo<v8::Value>& args) {
-//     v8::Isolate* isolate = args.GetIsolate();
+void v8Bind_ActiveTexture (const v8::FunctionCallbackInfo<v8::Value>& args) {
+    // Isolate::Scope iscope( isolate_ );
 //     v8::Local<v8::Value> arg0= args[0];
 //     if(!arg0->IsInt32()) {
 //         BAD_PARAMETER_TYPE(isolate);
@@ -186,10 +188,18 @@ int isUndefined(JNIEnv* env, jobject object) {
 //
 //     // glActiveTexture((GLenum)arg0->Int32Value());
 //     // GL_ERROR_THROW(isolate);
-// }
+}
 
-void initializeAura(v8::Isolate* isolate, Persistent<Object>* globalObject, Handle<Context> context) {
-    v8::Context::Scope context_scope(context);
+
+void initializeAura(V8Runtime* runtime) {
+    v8::Isolate* isolate = runtime->isolate;
+    isolate_ = isolate;
+
+    Isolate::Scope isolateScope(isolate);
+    // HandleScope handle_scope(isolate);
+    Local<Context> context = Local<Context>::New(isolate,runtime->context_);
+    Context::Scope context_scope(context);
+
     Local<Object> gl = Object::New(isolate);
     context->Global()->Set(v8::String::NewFromUtf8(isolate, "_gl"), gl);
 
@@ -497,8 +507,14 @@ void initializeAura(v8::Isolate* isolate, Persistent<Object>* globalObject, Hand
     gl->Set( String::NewFromUtf8(isolate, "RENDERBUFFER_BINDING"), Integer::New(isolate, 0x8CA7) );
     gl->Set( String::NewFromUtf8(isolate, "MAX_RENDERBUFFER_SIZE"), Integer::New(isolate, 0x84E8) );
     gl->Set( String::NewFromUtf8(isolate, "INVALID_FRAMEBUFFER_OPERATION"), Integer::New(isolate, 0x0506) );
+    gl->Set( String::NewFromUtf8(isolate, "RGBA16F"), Number::New(isolate, GL_RGBA16F) );
+    gl->Set( String::NewFromUtf8(isolate, "RGBA32F"), Number::New(isolate, GL_RGBA32F) );
+    gl->Set( String::NewFromUtf8(isolate, "RGB16F"), Number::New(isolate, GL_RGB16F) );
+    gl->Set( String::NewFromUtf8(isolate, "RGB32F"), Number::New(isolate, GL_RGB32F) );
+    gl->Set( String::NewFromUtf8(isolate, "UNIFORM_BUFFER"), Number::New(isolate, GL_UNIFORM_BUFFER) );
+    gl->Set( String::NewFromUtf8(isolate, "HALF_FLOAT"), Number::New(isolate, GL_HALF_FLOAT) );
 
-    // gl->Set( String::NewFromUtf8(isolate, "activeTexture"), Function::New(isolate, v8Bind_ActiveTexture) );
+    // gl->Set( String::NewFromUtf8(isolate_, "activeTexture"), Function::New(isolate, v8Bind_ActiveTexture) );
 }
 
 
@@ -815,7 +831,7 @@ JNIEXPORT jlong JNICALL Java_com_eclipsesource_v8_V8__1createIsolate
   }
 
   delete(runtime->locker);
-  initializeAura(runtime->isolate, runtime->globalObject, context_);
+  initializeAura(runtime);
   return reinterpret_cast<jlong>(runtime);
 }
 
