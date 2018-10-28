@@ -20,12 +20,15 @@
 #include <android/log.h>
 #include <GLES3/gl3.h>
 
+#define TAG "J2V8_V8Impl"
+
+#define LOGD(fmt, ...) __android_log_print(ANDROID_LOG_DEBUG, TAG, fmt "\n--> %s\n----> %s:%d", ##__VA_ARGS__, __FILE__, __FUNCTION__, __LINE__)
+#define LOGE(fmt, ...) __android_log_print(ANDROID_LOG_ERROR, TAG, fmt "\n--> %s\n----> %s:%d", ##__VA_ARGS__, __FILE__, __FUNCTION__, __LINE__)
+
 #ifdef NODE_COMPATIBLE
   #include <deps/uv/include/uv.h>
   #include <node.h>
 #endif
-
-#define TAG "J2V8_V8Impl"
 
 #pragma comment(lib, "userenv.lib")
 #pragma comment(lib, "IPHLPAPI.lib")
@@ -119,6 +122,8 @@ jmethodID v8FunctionInitMethodID = NULL;
 jmethodID v8ObjectInitMethodID = NULL;
 jmethodID v8RuntimeExceptionInitMethodID = NULL;
 
+v8::Isolate* isolate_;
+
 void throwParseException(JNIEnv *env, Isolate* isolate, TryCatch* tryCatch);
 void throwExecutionException(JNIEnv *env, Isolate* isolate, TryCatch* tryCatch, jlong v8RuntimePtr);
 void throwError(JNIEnv *env, const char *message);
@@ -127,6 +132,7 @@ void throwResultUndefinedException(JNIEnv *env, const char *message);
 Isolate* getIsolate(JNIEnv *env, jlong handle);
 int getType(Handle<Value> v8Value);
 jobject getResult(JNIEnv *env, jobject &v8, jlong v8RuntimePtr, Handle<Value> &result, jint expectedType);
+Local<String> createV8String(JNIEnv *env, Isolate *isolate, jstring &string);
 
 #define SETUP(env, v8RuntimePtr, errorReturnResult) getIsolate(env, v8RuntimePtr);\
     if ( isolate == NULL ) {\
@@ -167,7 +173,23 @@ int isUndefined(JNIEnv* env, jobject object) {
   return env->CallBooleanMethod(object, v8ObjectIsUndefinedMethodID);
 }
 
-//AURA
+void getJNIEnv(JNIEnv*& env) {
+  int getEnvStat = jvm->GetEnv((void **)&env, JNI_VERSION_1_6);
+  if (getEnvStat == JNI_EDETACHED) {
+#ifdef __ANDROID_API__
+    if (jvm->AttachCurrentThread(&env, NULL) != 0) {
+#else
+    if (jvm->AttachCurrentThread((void **)&env, NULL) != 0) {
+#endif
+      std::cout << "Failed to attach" << std::endl;
+    }
+  }
+  else if (getEnvStat == JNI_OK) {
+  }
+  else if (getEnvStat == JNI_EVERSION) {
+    std::cout << "GetEnv: version not supported" << std::endl;
+  }
+}
 
 jlong getHandle(JNIEnv* env, jobject object) {
   return env->CallLongMethod(object, v8ObjectGetHandleMethodID);
@@ -199,24 +221,6 @@ void addValueWithKey(JNIEnv* env, Isolate* isolate, jlong &v8RuntimePtr, jlong &
   Local<String> v8Key = String::NewFromTwoByte(isolate, unicodeString_key, String::NewStringType::kNormalString, length);
   object->Set(v8Key, value);
   env->ReleaseStringChars(key, unicodeString_key);
-}
-
-void getJNIEnv(JNIEnv*& env) {
-  int getEnvStat = jvm->GetEnv((void **)&env, JNI_VERSION_1_6);
-  if (getEnvStat == JNI_EDETACHED) {
-#ifdef __ANDROID_API__
-    if (jvm->AttachCurrentThread(&env, NULL) != 0) {
-#else
-    if (jvm->AttachCurrentThread((void **)&env, NULL) != 0) {
-#endif
-      std::cout << "Failed to attach" << std::endl;
-    }
-  }
-  else if (getEnvStat == JNI_OK) {
-  }
-  else if (getEnvStat == JNI_EVERSION) {
-    std::cout << "GetEnv: version not supported" << std::endl;
-  }
 }
 
 static void jsWindowObjectAccessor(Local<String> property,
@@ -272,7 +276,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
 
     // Get all method IDs
     v8ArrayInitMethodID = env->GetMethodID(v8ArrayCls, "<init>", "(Lcom/eclipsesource/v8/V8;)V");
-	v8TypedArrayInitMethodID = env->GetMethodID(v8TypedArrayCls, "<init>", "(Lcom/eclipsesource/v8/V8;)V");
+    v8TypedArrayInitMethodID = env->GetMethodID(v8TypedArrayCls, "<init>", "(Lcom/eclipsesource/v8/V8;)V");
     v8ArrayBufferInitMethodID = env->GetMethodID(v8ArrayBufferCls, "<init>", "(Lcom/eclipsesource/v8/V8;Ljava/nio/ByteBuffer;)V");
     v8ArrayGetHandleMethodID = env->GetMethodID(v8ArrayCls, "getHandle", "()J");
     v8CallVoidMethodID = (env)->GetMethodID(v8cls, "callVoidJavaMethod", "(JLcom/eclipsesource/v8/V8Object;Lcom/eclipsesource/v8/V8Array;)V");
@@ -482,7 +486,6 @@ JNIEXPORT jlong JNICALL Java_com_eclipsesource_v8_V8__1createIsolate
   }
 
   delete(runtime->locker);
-  initializeAura(runtime);
   return reinterpret_cast<jlong>(runtime);
 }
 
@@ -538,7 +541,7 @@ JNIEXPORT jlong JNICALL Java_com_eclipsesource_v8_V8__1initNewV8Object
 JNIEXPORT jlong JNICALL Java_com_eclipsesource_v8_V8__1getGlobalObject
   (JNIEnv *env, jobject, jlong v8RuntimePtr) {
   Isolate* isolate = SETUP(env, v8RuntimePtr, 0);
-  Local<Object> obj = Object::New(isolate);
+  // Local<Object> obj = Object::New(isolate);
   return reinterpret_cast<jlong>(reinterpret_cast<V8Runtime*>(v8RuntimePtr)->globalObject);
 }
 
@@ -1725,6 +1728,7 @@ JNIEXPORT jlongArray JNICALL Java_com_eclipsesource_v8_V8__1initNewV8Function
   }, WeakCallbackType::kParameter);
 
   Local<Function> function = Function::New(isolate, objectCallback, ext);
+  //Local<Function> function = Function::New(isolate, v8Bind_ActiveTexture, ext);
   md->v8RuntimePtr = v8RuntimePtr;
   Persistent<Object>* container = new Persistent<Object>;
   container->Reset(reinterpret_cast<V8Runtime*>(v8RuntimePtr)->isolate, function);
@@ -1737,6 +1741,30 @@ JNIEXPORT jlongArray JNICALL Java_com_eclipsesource_v8_V8__1initNewV8Function
   fill[1] = md->methodID;
   (env)->SetLongArrayRegion(result, 0, 2, fill);
   return result;
+}
+
+//AURA
+
+JNIEXPORT void JNICALL Java_com_eclipsesource_v8_V8__1initAura
+(JNIEnv *env, jobject, jlong v8RuntimePtr) {
+  Isolate* isolate = SETUP(env, v8RuntimePtr, 0);
+  MethodDescriptor* md = new MethodDescriptor();
+  Local<External> ext = External::New(isolate, md);
+  Persistent<External> pext(isolate, ext);
+  isolate->IdleNotification(1000);
+  pext.SetWeak(md, [](v8::WeakCallbackInfo<MethodDescriptor> const& data) {
+    MethodDescriptor* md = data.GetParameter();
+    jobject v8 = reinterpret_cast<V8Runtime*>(md->v8RuntimePtr)->v8;
+    JNIEnv * env;
+    getJNIEnv(env);
+    env->CallVoidMethod(v8, v8DisposeMethodID, md->methodID);
+    delete(md);
+  }, WeakCallbackType::kParameter);
+
+  Local<Object> gl = Object::New(isolate);
+  context->Global()->Set(v8::String::NewFromUtf8(isolate, "_gl"), gl);
+
+  initializeAura(runtime, gl);
 }
 
 JNIEXPORT void JNICALL Java_com_eclipsesource_v8_V8__1setWeak

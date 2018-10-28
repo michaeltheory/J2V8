@@ -215,6 +215,8 @@ include_directories(${include_dirs})
 
 # link the necessary libraries
 target_link_libraries(j2v8
+                      android
+                      log
 					  GLESv3
 					  debug "${njs_Debug_libs}" "${j2v8_Debug_libs}"
 					  optimized "${njs_Release_libs}" "${j2v8_Release_libs}"

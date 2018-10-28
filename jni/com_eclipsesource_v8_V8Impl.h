@@ -411,6 +411,14 @@ JNIEXPORT jlong JNICALL Java_com_eclipsesource_v8_V8__1initNewV8Array
 JNIEXPORT jlongArray JNICALL Java_com_eclipsesource_v8_V8__1initNewV8Function
   (JNIEnv *, jobject, jlong);
 
+  /*
+   * Class:     com_eclipsesource_v8_V8
+   * Method:    _initAura
+   * Signature: (J)[J
+   */
+  JNIEXPORT void JNICALL Java_com_eclipsesource_v8_V8__1initAura
+    (JNIEnv *, jobject, jlong);
+
 /*
  * Class:     com_eclipsesource_v8_V8
  * Method:    _arrayGetSize

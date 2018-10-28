@@ -1261,6 +1261,11 @@ public class V8 extends V8Object {
         return _initNewV8Function(v8RuntimePtr);
     }
 
+    public void initAura() {
+        checkThread();
+        _initAura(v8RuntimePtr);
+    }
+
     protected int arrayGetSize(final long v8RuntimePtr, final long arrayHandle) {
         return _arrayGetSize(v8RuntimePtr, arrayHandle);
     }
@@ -1478,6 +1483,8 @@ public class V8 extends V8Object {
     private native long _initNewV8Array(long v8RuntimePtr);
 
     private native long[] _initNewV8Function(long v8RuntimePtr);
+
+    private native void _initAura(long v8RuntimePtr);
 
     private native int _arrayGetSize(long v8RuntimePtr, long arrayHandle);
 
