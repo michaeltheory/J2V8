@@ -119,6 +119,8 @@ jmethodID v8FunctionInitMethodID = NULL;
 jmethodID v8ObjectInitMethodID = NULL;
 jmethodID v8RuntimeExceptionInitMethodID = NULL;
 
+v8::Isolate* isolate_;
+
 void throwParseException(JNIEnv *env, Isolate* isolate, TryCatch* tryCatch);
 void throwExecutionException(JNIEnv *env, Isolate* isolate, TryCatch* tryCatch, jlong v8RuntimePtr);
 void throwError(JNIEnv *env, const char *message);
@@ -127,6 +129,7 @@ void throwResultUndefinedException(JNIEnv *env, const char *message);
 Isolate* getIsolate(JNIEnv *env, jlong handle);
 int getType(Handle<Value> v8Value);
 jobject getResult(JNIEnv *env, jobject &v8, jlong v8RuntimePtr, Handle<Value> &result, jint expectedType);
+Local<String> createV8String(JNIEnv *env, Isolate *isolate, jstring &string);
 
 #define SETUP(env, v8RuntimePtr, errorReturnResult) getIsolate(env, v8RuntimePtr);\
     if ( isolate == NULL ) {\
@@ -167,42 +170,61 @@ int isUndefined(JNIEnv* env, jobject object) {
   return env->CallBooleanMethod(object, v8ObjectIsUndefinedMethodID);
 }
 
-v8::Isolate* isolate_;
 
-// #define BAD_PARAMETER_TYPE(x) x->ThrowException(v8::Exception::Error(String::NewFromUtf8(x, "Bad parameter type")))
-// bool CHECK_GL_ERRORS = true;
+#define BAD_PARAMETER_TYPE(x) x->ThrowException(v8::Exception::Error(String::NewFromUtf8(x, "Bad parameter type")))
+bool CHECK_GL_ERRORS = true;
 
-// #define GL_ERROR_THROW(x) \
-// if (CHECK_GL_ERRORS) { \
-//   if (glGetError() != GL_NO_ERROR) { \
-//       x->ThrowException(v8::Exception::Error(String::NewFromUtf8(x, "GL Error")));\
-//   } \
-// }
+#define GL_ERROR_THROW(x) \
+if (CHECK_GL_ERRORS) { \
+  if (glGetError() != GL_NO_ERROR) { \
+      x->ThrowException(v8::Exception::Error(String::NewFromUtf8(x, "GL Error")));\
+  } \
+}
 
-void v8Bind_ActiveTexture (const v8::FunctionCallbackInfo<v8::Value>& args) {
-    // Isolate::Scope iscope( isolate_ );
-//     v8::Local<v8::Value> arg0= args[0];
-//     if(!arg0->IsInt32()) {
-//         BAD_PARAMETER_TYPE(isolate);
-//     }
-//
-//     // glActiveTexture((GLenum)arg0->Int32Value());
-//     // GL_ERROR_THROW(isolate);
+void getJNIEnv(JNIEnv*& env) {
+  int getEnvStat = jvm->GetEnv((void **)&env, JNI_VERSION_1_6);
+  if (getEnvStat == JNI_EDETACHED) {
+#ifdef __ANDROID_API__
+    if (jvm->AttachCurrentThread(&env, NULL) != 0) {
+#else
+    if (jvm->AttachCurrentThread((void **)&env, NULL) != 0) {
+#endif
+      std::cout << "Failed to attach" << std::endl;
+    }
+  }
+  else if (getEnvStat == JNI_OK) {
+  }
+  else if (getEnvStat == JNI_EVERSION) {
+    std::cout << "GetEnv: version not supported" << std::endl;
+  }
 }
 
 
+void v8Bind_ActiveTexture (const FunctionCallbackInfo<Value>& args) {
+    Isolate::Scope iscope( isolate_ );
+    Local<Value> arg0= args[0];
+    if(!arg0->IsInt32()) {
+        BAD_PARAMETER_TYPE(isolate_);
+    }
+
+    glActiveTexture((GLenum)arg0->Int32Value());
+    GL_ERROR_THROW(isolate_);
+}
+
 void initializeAura(V8Runtime* runtime) {
     v8::Isolate* isolate = runtime->isolate;
+
     isolate_ = isolate;
 
     Isolate::Scope isolateScope(isolate);
-    // HandleScope handle_scope(isolate);
+    //HandleScope handle_scope(isolate);
     Local<Context> context = Local<Context>::New(isolate,runtime->context_);
     Context::Scope context_scope(context);
 
     Local<Object> gl = Object::New(isolate);
     context->Global()->Set(v8::String::NewFromUtf8(isolate, "_gl"), gl);
 
+    //  Try to change the input arguments of initializeAura
     gl->Set( String::NewFromUtf8(isolate, "DEPTH_BUFFER_BIT"), Integer::New(isolate, 0x00000100) );
     gl->Set( String::NewFromUtf8(isolate, "STENCIL_BUFFER_BIT"), Integer::New(isolate, 0x00000400) );
     gl->Set( String::NewFromUtf8(isolate, "COLOR_BUFFER_BIT"), Integer::New(isolate, 0x00004000) );
@@ -514,7 +536,43 @@ void initializeAura(V8Runtime* runtime) {
     gl->Set( String::NewFromUtf8(isolate, "UNIFORM_BUFFER"), Number::New(isolate, GL_UNIFORM_BUFFER) );
     gl->Set( String::NewFromUtf8(isolate, "HALF_FLOAT"), Number::New(isolate, GL_HALF_FLOAT) );
 
-    // gl->Set( String::NewFromUtf8(isolate_, "activeTexture"), Function::New(isolate, v8Bind_ActiveTexture) );
+    // MethodDescriptor* md = new MethodDescriptor();
+    // Local<External> ext = External::New(isolate, md);
+    // Persistent<External> pext(isolate, ext);
+    // isolate->IdleNotification(1000);
+    // pext.SetWeak(md, [](v8::WeakCallbackInfo<MethodDescriptor> const& data) {
+    //   MethodDescriptor* md = data.GetParameter();
+    //   jobject v8 = reinterpret_cast<V8Runtime*>(md->v8RuntimePtr)->v8;
+    //   JNIEnv * env;
+    //   getJNIEnv(env);
+    //   env->CallVoidMethod(v8, v8DisposeMethodID, md->methodID);
+    //   delete(md);
+    // }, WeakCallbackType::kParameter);
+
+    // Local<Function> function = Function::New(isolate, v8Bind_ActiveTexture, ext);
+    // gl-> Set( String::NewFromUtf8(isolate, "activeTexture"), function);
+    
+    //Handle<Object> object = Local<Object>::New(isolate, *reinterpret_cast<Persistent<Object>*>(objectHandle));
+    //Local<String> v8FunctionName = createV8String(env, isolate, functionName);
+    //isolate->IdleNotification(1000);
+    // MethodDescriptor* md= new MethodDescriptor();
+    // Local<External> ext =  External::New(isolate, md);
+    // Persistent<External> pext(isolate, ext);
+    // pext.SetWeak(md, [](v8::WeakCallbackInfo<MethodDescriptor> const& data) {
+    //   MethodDescriptor* md = data.GetParameter();
+    //   jobject v8 = reinterpret_cast<V8Runtime*>(md->v8RuntimePtr)->v8;
+    //   JNIEnv * env;
+    //   getJNIEnv(env);
+    //   env->CallVoidMethod(v8, v8DisposeMethodID, md->methodID);
+    //   delete(md);
+    // }, WeakCallbackType::kParameter);
+
+    // md->methodID = reinterpret_cast<jlong>(md);
+    // md->v8RuntimePtr =  reinterpret_cast<jlong>(runtime);
+
+    // gl->Set(v8FunctionName, Function::New(isolate, v8Bind_ActiveTexture, ext));
+    
+    // gl-> Set( String::NewFromUtf8(isolate, "activeTexture"), Function::New(isolate, v8Bind_ActiveTexture, ext) );
 }
 
 
@@ -548,24 +606,6 @@ void addValueWithKey(JNIEnv* env, Isolate* isolate, jlong &v8RuntimePtr, jlong &
   Local<String> v8Key = String::NewFromTwoByte(isolate, unicodeString_key, String::NewStringType::kNormalString, length);
   object->Set(v8Key, value);
   env->ReleaseStringChars(key, unicodeString_key);
-}
-
-void getJNIEnv(JNIEnv*& env) {
-  int getEnvStat = jvm->GetEnv((void **)&env, JNI_VERSION_1_6);
-  if (getEnvStat == JNI_EDETACHED) {
-#ifdef __ANDROID_API__
-    if (jvm->AttachCurrentThread(&env, NULL) != 0) {
-#else
-    if (jvm->AttachCurrentThread((void **)&env, NULL) != 0) {
-#endif
-      std::cout << "Failed to attach" << std::endl;
-    }
-  }
-  else if (getEnvStat == JNI_OK) {
-  }
-  else if (getEnvStat == JNI_EVERSION) {
-    std::cout << "GetEnv: version not supported" << std::endl;
-  }
 }
 
 static void jsWindowObjectAccessor(Local<String> property,
@@ -621,7 +661,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
 
     // Get all method IDs
     v8ArrayInitMethodID = env->GetMethodID(v8ArrayCls, "<init>", "(Lcom/eclipsesource/v8/V8;)V");
-	v8TypedArrayInitMethodID = env->GetMethodID(v8TypedArrayCls, "<init>", "(Lcom/eclipsesource/v8/V8;)V");
+    v8TypedArrayInitMethodID = env->GetMethodID(v8TypedArrayCls, "<init>", "(Lcom/eclipsesource/v8/V8;)V");
     v8ArrayBufferInitMethodID = env->GetMethodID(v8ArrayBufferCls, "<init>", "(Lcom/eclipsesource/v8/V8;Ljava/nio/ByteBuffer;)V");
     v8ArrayGetHandleMethodID = env->GetMethodID(v8ArrayCls, "getHandle", "()J");
     v8CallVoidMethodID = (env)->GetMethodID(v8cls, "callVoidJavaMethod", "(JLcom/eclipsesource/v8/V8Object;Lcom/eclipsesource/v8/V8Array;)V");
@@ -887,7 +927,7 @@ JNIEXPORT jlong JNICALL Java_com_eclipsesource_v8_V8__1initNewV8Object
 JNIEXPORT jlong JNICALL Java_com_eclipsesource_v8_V8__1getGlobalObject
   (JNIEnv *env, jobject, jlong v8RuntimePtr) {
   Isolate* isolate = SETUP(env, v8RuntimePtr, 0);
-  Local<Object> obj = Object::New(isolate);
+  // Local<Object> obj = Object::New(isolate);
   return reinterpret_cast<jlong>(reinterpret_cast<V8Runtime*>(v8RuntimePtr)->globalObject);
 }
 
@@ -2073,7 +2113,8 @@ JNIEXPORT jlongArray JNICALL Java_com_eclipsesource_v8_V8__1initNewV8Function
     delete(md);
   }, WeakCallbackType::kParameter);
 
-  Local<Function> function = Function::New(isolate, objectCallback, ext);
+  //Local<Function> function = Function::New(isolate, objectCallback, ext);
+  Local<Function> function = Function::New(isolate, v8Bind_ActiveTexture, ext);
   md->v8RuntimePtr = v8RuntimePtr;
   Persistent<Object>* container = new Persistent<Object>;
   container->Reset(reinterpret_cast<V8Runtime*>(v8RuntimePtr)->isolate, function);
