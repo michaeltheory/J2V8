@@ -13,7 +13,6 @@
 #include <iostream>
 #include <v8.h>
 #include <string.h>
-#include <v8-debug.h>
 #include <map>
 #include <cstdlib>
 #include "com_eclipsesource_v8_V8Impl.h"
