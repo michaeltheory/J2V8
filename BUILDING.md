@@ -6,6 +6,9 @@
 4. `nodejs diff apply` to apply the required modifications to the Node.js source code
 5. start the desired J2V8 build either via `build -i` or `build ...args` (see below for details)
 
+- `build -t android -a arm64 -dkr`
+- `build -t android -a arm -dkr`
+
 # Build-System CLI
 
 ## Interactive
