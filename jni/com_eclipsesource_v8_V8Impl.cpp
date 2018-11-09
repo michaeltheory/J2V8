@@ -1727,7 +1727,6 @@ JNIEXPORT jlongArray JNICALL Java_com_eclipsesource_v8_V8__1initNewV8Function
   }, WeakCallbackType::kParameter);
 
   Local<Function> function = Function::New(isolate, objectCallback, ext);
-  //Local<Function> function = Function::New(isolate, v8Bind_ActiveTexture, ext);
   md->v8RuntimePtr = v8RuntimePtr;
   Persistent<Object>* container = new Persistent<Object>;
   container->Reset(reinterpret_cast<V8Runtime*>(v8RuntimePtr)->isolate, function);
@@ -4710,6 +4709,8 @@ void initializeAura(V8Runtime* runtime, Local<Object> gl) {
     gl->Set( String::NewFromUtf8(isolate, "RENDERBUFFER_BINDING"), Integer::New(isolate, 0x8CA7) );
     gl->Set( String::NewFromUtf8(isolate, "MAX_RENDERBUFFER_SIZE"), Integer::New(isolate, 0x84E8) );
     gl->Set( String::NewFromUtf8(isolate, "INVALID_FRAMEBUFFER_OPERATION"), Integer::New(isolate, 0x0506) );
+    gl->Set( String::NewFromUtf8(isolate, "DRAW_FRAMEBUFFER"), Integer::New(isolate, GL_DRAW_FRAMEBUFFER) );
+    gl->Set( String::NewFromUtf8(isolate, "READ_FRAMEBUFFER"), Integer::New(isolate, GL_READ_FRAMEBUFFER) );
 
     gl->Set( String::NewFromUtf8(isolate, "RGBA16F"), Number::New(isolate, GL_RGBA16F) );
     gl->Set( String::NewFromUtf8(isolate, "RGBA32F"), Number::New(isolate, GL_RGBA32F) );
@@ -4883,22 +4884,10 @@ void initializeAura(V8Runtime* runtime, Local<Object> gl) {
 JNIEXPORT void JNICALL Java_com_eclipsesource_v8_V8__1initAura
 (JNIEnv *env, jobject, jlong v8RuntimePtr) {
   Isolate* isolate = SETUP(env, v8RuntimePtr, 0);
-  MethodDescriptor* md = new MethodDescriptor();
-  Local<External> ext = External::New(isolate, md);
-  Persistent<External> pext(isolate, ext);
-  isolate->IdleNotification(1000);
-  pext.SetWeak(md, [](v8::WeakCallbackInfo<MethodDescriptor> const& data) {
-    MethodDescriptor* md = data.GetParameter();
-    jobject v8 = reinterpret_cast<V8Runtime*>(md->v8RuntimePtr)->v8;
-    JNIEnv * env;
-    getJNIEnv(env);
-    env->CallVoidMethod(v8, v8DisposeMethodID, md->methodID);
-    delete(md);
-  }, WeakCallbackType::kParameter);
 
   Local<Object> gl = Object::New(isolate);
   context->Global()->Set(v8::String::NewFromUtf8(isolate, "_gl"), gl);
-
+    
   initializeAura(runtime, gl);
 }
 

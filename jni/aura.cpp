@@ -2966,6 +2966,8 @@ void initializeAura(V8Runtime* runtime, Local<Object> gl) {
     gl->Set( String::NewFromUtf8(isolate, "RENDERBUFFER_BINDING"), Integer::New(isolate, 0x8CA7) );
     gl->Set( String::NewFromUtf8(isolate, "MAX_RENDERBUFFER_SIZE"), Integer::New(isolate, 0x84E8) );
     gl->Set( String::NewFromUtf8(isolate, "INVALID_FRAMEBUFFER_OPERATION"), Integer::New(isolate, 0x0506) );
+    gl->Set( String::NewFromUtf8(isolate, "DRAW_FRAMEBUFFER"), Integer::New(isolate, GL_DRAW_FRAMEBUFFER) );
+    gl->Set( String::NewFromUtf8(isolate, "READ_FRAMEBUFFER"), Integer::New(isolate, GL_READ_FRAMEBUFFER) );
 
     gl->Set( String::NewFromUtf8(isolate, "RGBA16F"), Number::New(isolate, GL_RGBA16F) );
     gl->Set( String::NewFromUtf8(isolate, "RGBA32F"), Number::New(isolate, GL_RGBA32F) );

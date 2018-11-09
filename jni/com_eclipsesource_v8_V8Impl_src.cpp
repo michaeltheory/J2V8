@@ -1727,7 +1727,6 @@ JNIEXPORT jlongArray JNICALL Java_com_eclipsesource_v8_V8__1initNewV8Function
   }, WeakCallbackType::kParameter);
 
   Local<Function> function = Function::New(isolate, objectCallback, ext);
-  //Local<Function> function = Function::New(isolate, v8Bind_ActiveTexture, ext);
   md->v8RuntimePtr = v8RuntimePtr;
   Persistent<Object>* container = new Persistent<Object>;
   container->Reset(reinterpret_cast<V8Runtime*>(v8RuntimePtr)->isolate, function);
@@ -1747,22 +1746,10 @@ JNIEXPORT jlongArray JNICALL Java_com_eclipsesource_v8_V8__1initNewV8Function
 JNIEXPORT void JNICALL Java_com_eclipsesource_v8_V8__1initAura
 (JNIEnv *env, jobject, jlong v8RuntimePtr) {
   Isolate* isolate = SETUP(env, v8RuntimePtr, 0);
-  MethodDescriptor* md = new MethodDescriptor();
-  Local<External> ext = External::New(isolate, md);
-  Persistent<External> pext(isolate, ext);
-  isolate->IdleNotification(1000);
-  pext.SetWeak(md, [](v8::WeakCallbackInfo<MethodDescriptor> const& data) {
-    MethodDescriptor* md = data.GetParameter();
-    jobject v8 = reinterpret_cast<V8Runtime*>(md->v8RuntimePtr)->v8;
-    JNIEnv * env;
-    getJNIEnv(env);
-    env->CallVoidMethod(v8, v8DisposeMethodID, md->methodID);
-    delete(md);
-  }, WeakCallbackType::kParameter);
 
   Local<Object> gl = Object::New(isolate);
   context->Global()->Set(v8::String::NewFromUtf8(isolate, "_gl"), gl);
-
+    
   initializeAura(runtime, gl);
 }
 
