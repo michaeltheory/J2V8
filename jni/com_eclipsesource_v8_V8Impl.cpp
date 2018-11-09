@@ -4718,6 +4718,7 @@ void initializeAura(V8Runtime* runtime, Local<Object> gl) {
     gl->Set( String::NewFromUtf8(isolate, "RGB32F"), Number::New(isolate, GL_RGB32F) );
     gl->Set( String::NewFromUtf8(isolate, "UNIFORM_BUFFER"), Number::New(isolate, GL_UNIFORM_BUFFER) );
     gl->Set( String::NewFromUtf8(isolate, "HALF_FLOAT"), Number::New(isolate, GL_HALF_FLOAT) );
+    gl->Set( String::NewFromUtf8(isolate, "TEXTURE_EXTERNAL_OES"), Number::New(isolate, 0x8D65) );
 
     gl->Set( String::NewFromUtf8(isolate, "activeTexture"), Function::New(isolate, v8Bind_ActiveTexture) );
     gl->Set( String::NewFromUtf8(isolate, "attachShader"), Function::New(isolate, v8Bind_AttachShader) );
