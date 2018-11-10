@@ -1,10 +1,26 @@
+const char* GLErrorToString(GLenum err) {
+    switch (err) {
+    case GL_NO_ERROR:                      return "GL_NO_ERROR";
+    case GL_INVALID_ENUM:                  return "GL_INVALID_ENUM";
+    case GL_INVALID_VALUE:                 return "GL_INVALID_VALUE";
+    case GL_INVALID_OPERATION:             return "GL_INVALID_OPERATION";
+    case GL_OUT_OF_MEMORY:                 return "GL_OUT_OF_MEMORY";
+    case 0x8031: /* not core */            return "GL_TABLE_TOO_LARGE_EXT";
+    case 0x8065: /* not core */            return "GL_TEXTURE_TOO_LARGE_EXT";
+    case GL_INVALID_FRAMEBUFFER_OPERATION: return "GL_INVALID_FRAMEBUFFER_OPERATION";
+    default:
+        return NULL;
+    }
+}
+
 #define BAD_PARAMETER_TYPE(x) x->ThrowException(v8::Exception::Error(String::NewFromUtf8(x, "Bad parameter type")))
 bool CHECK_GL_ERRORS = true;
 
 #define GL_ERROR_THROW(x) \
 if (CHECK_GL_ERRORS) { \
-  if (glGetError() != GL_NO_ERROR) { \
-      x->ThrowException(v8::Exception::Error(String::NewFromUtf8(x, "GL Error")));\
+  GLenum err = glGetError(); \
+  if (err != GL_NO_ERROR) { \
+      x->ThrowException(v8::Exception::Error(String::NewFromUtf8(x, GLErrorToString(err))));\
   } \
 } \
 
@@ -2658,6 +2674,34 @@ void AURA_DrawBuffers (const v8::FunctionCallbackInfo<v8::Value>& args) {
     GL_ERROR_THROW(isolate);
 }
 
+void AURA_BlitFramebuffer (const v8::FunctionCallbackInfo<v8::Value>& args) {
+    v8::Isolate* isolate = args.GetIsolate();
+    v8::Local<v8::Value> arg0= args[0];
+    v8::Local<v8::Value> arg1= args[1];
+    v8::Local<v8::Value> arg2= args[2];
+    v8::Local<v8::Value> arg3= args[3];
+    v8::Local<v8::Value> arg4= args[4];
+    v8::Local<v8::Value> arg5= args[5];
+    v8::Local<v8::Value> arg6= args[6];
+    v8::Local<v8::Value> arg7= args[7];
+    v8::Local<v8::Value> arg8= args[8];
+    v8::Local<v8::Value> arg9= args[9];
+
+    GLuint x0 = (GLenum)arg0->Int32Value();
+    GLuint y0 = (GLenum)arg1->Int32Value();
+    GLuint w0 = (GLenum)arg2->Int32Value();
+    GLuint h0 = (GLenum)arg3->Int32Value();
+    GLuint x1 = (GLenum)arg4->Int32Value();
+    GLuint y1 = (GLenum)arg5->Int32Value();
+    GLuint w1 = (GLenum)arg6->Int32Value();
+    GLuint h1 = (GLenum)arg7->Int32Value();
+    GLbitfield target = (GLenum)arg8->Int32Value();
+    GLenum type = (GLenum)arg9->Int32Value();
+
+    glBlitFramebuffer(x0, y0, w0, h0, x1, y1, w1, h1, target, type);
+    GL_ERROR_THROW(isolate);
+}
+
 void initializeAura(V8Runtime* runtime, Local<Object> gl) {
     v8::Isolate* isolate = runtime->isolate;
     isolate_ = isolate;
@@ -3135,5 +3179,6 @@ void initializeAura(V8Runtime* runtime, Local<Object> gl) {
     gl->Set( String::NewFromUtf8(isolate, "bindVertexArray"), Function::New(isolate, AURA_BindVertexArray) );
     gl->Set( String::NewFromUtf8(isolate, "deleteVertexArray"), Function::New(isolate, AURA_DeleteVertexArray) );
     gl->Set( String::NewFromUtf8(isolate, "drawBuffers"), Function::New(isolate, AURA_DrawBuffers) );
+    gl->Set( String::NewFromUtf8(isolate, "blitFramebuffer"), Function::New(isolate, AURA_BlitFramebuffer) );
 
 }
