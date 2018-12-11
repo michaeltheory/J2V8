@@ -4418,32 +4418,32 @@ void AURA_DrawBuffers (const v8::FunctionCallbackInfo<v8::Value>& args) {
 }
 
 void AURA_BlitFramebuffer (const v8::FunctionCallbackInfo<v8::Value>& args) {
-        v8::Isolate* isolate = args.GetIsolate();
-        v8::Local<v8::Value> arg0= args[0];
-        v8::Local<v8::Value> arg1= args[1];
-        v8::Local<v8::Value> arg2= args[2];
-        v8::Local<v8::Value> arg3= args[3];
-        v8::Local<v8::Value> arg4= args[4];
-        v8::Local<v8::Value> arg5= args[5];
-        v8::Local<v8::Value> arg6= args[6];
-        v8::Local<v8::Value> arg7= args[7];
-        v8::Local<v8::Value> arg8= args[8];
-        v8::Local<v8::Value> arg9= args[9];
+    v8::Isolate* isolate = args.GetIsolate();
+    v8::Local<v8::Value> arg0= args[0];
+    v8::Local<v8::Value> arg1= args[1];
+    v8::Local<v8::Value> arg2= args[2];
+    v8::Local<v8::Value> arg3= args[3];
+    v8::Local<v8::Value> arg4= args[4];
+    v8::Local<v8::Value> arg5= args[5];
+    v8::Local<v8::Value> arg6= args[6];
+    v8::Local<v8::Value> arg7= args[7];
+    v8::Local<v8::Value> arg8= args[8];
+    v8::Local<v8::Value> arg9= args[9];
 
-        GLuint x0 = (GLenum)arg0->Int32Value();
-        GLuint y0 = (GLenum)arg1->Int32Value();
-        GLuint w0 = (GLenum)arg2->Int32Value();
-        GLuint h0 = (GLenum)arg3->Int32Value();
-        GLuint x1 = (GLenum)arg4->Int32Value();
-        GLuint y1 = (GLenum)arg5->Int32Value();
-        GLuint w1 = (GLenum)arg6->Int32Value();
-        GLuint h1 = (GLenum)arg7->Int32Value();
-        GLbitfield target = (GLenum)arg8->Int32Value();
-        GLenum type = (GLenum)arg9->Int32Value();
+    GLuint x0 = (GLenum)arg0->Int32Value();
+    GLuint y0 = (GLenum)arg1->Int32Value();
+    GLuint w0 = (GLenum)arg2->Int32Value();
+    GLuint h0 = (GLenum)arg3->Int32Value();
+    GLuint x1 = (GLenum)arg4->Int32Value();
+    GLuint y1 = (GLenum)arg5->Int32Value();
+    GLuint w1 = (GLenum)arg6->Int32Value();
+    GLuint h1 = (GLenum)arg7->Int32Value();
+    GLbitfield target = (GLenum)arg8->Int32Value();
+    GLenum type = (GLenum)arg9->Int32Value();
 
-        glBlitFramebuffer(x0, y0, w0, h0, x1, y1, w1, h1, target, type);
-        GL_ERROR_THROW(isolate);
-    }
+    glBlitFramebuffer(x0, y0, w0, h0, x1, y1, w1, h1, target, type);
+    GL_ERROR_THROW(isolate);
+}
 
 void initializeAura(V8Runtime* runtime, Local<Object> gl) {
     v8::Isolate* isolate = runtime->isolate;
@@ -4740,7 +4740,6 @@ void initializeAura(V8Runtime* runtime, Local<Object> gl) {
     gl->Set( String::NewFromUtf8(isolate, "FRAMEBUFFER_ATTACHMENT_OBJECT_NAME"), Integer::New(isolate, 0x8CD1) );
     gl->Set( String::NewFromUtf8(isolate, "FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL"), Integer::New(isolate, 0x8CD2) );
     gl->Set( String::NewFromUtf8(isolate, "FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE"), Integer::New(isolate, 0x8CD3) );
-    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT0"), Integer::New(isolate, 0x8CE0) );
     gl->Set( String::NewFromUtf8(isolate, "DEPTH_ATTACHMENT"), Integer::New(isolate, 0x8D00) );
     gl->Set( String::NewFromUtf8(isolate, "STENCIL_ATTACHMENT"), Integer::New(isolate, 0x8D20) );
     gl->Set( String::NewFromUtf8(isolate, "NONE"), Integer::New(isolate, 0) );
@@ -4763,6 +4762,24 @@ void initializeAura(V8Runtime* runtime, Local<Object> gl) {
     gl->Set( String::NewFromUtf8(isolate, "UNIFORM_BUFFER"), Number::New(isolate, GL_UNIFORM_BUFFER) );
     gl->Set( String::NewFromUtf8(isolate, "HALF_FLOAT"), Number::New(isolate, GL_HALF_FLOAT) );
     gl->Set( String::NewFromUtf8(isolate, "TEXTURE_EXTERNAL_OES"), Number::New(isolate, 0x8D65) );
+
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT0"), Integer::New(isolate, GL_COLOR_ATTACHMENT0) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT1"), Integer::New(isolate, GL_COLOR_ATTACHMENT1) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT2"), Integer::New(isolate, GL_COLOR_ATTACHMENT2) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT3"), Integer::New(isolate, GL_COLOR_ATTACHMENT3) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT4"), Integer::New(isolate, GL_COLOR_ATTACHMENT4) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT5"), Integer::New(isolate, GL_COLOR_ATTACHMENT5) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT6"), Integer::New(isolate, GL_COLOR_ATTACHMENT6) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT7"), Integer::New(isolate, GL_COLOR_ATTACHMENT7) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT8"), Integer::New(isolate, GL_COLOR_ATTACHMENT8) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT9"), Integer::New(isolate, GL_COLOR_ATTACHMENT9) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT10"), Integer::New(isolate, GL_COLOR_ATTACHMENT10) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT11"), Integer::New(isolate, GL_COLOR_ATTACHMENT11) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT12"), Integer::New(isolate, GL_COLOR_ATTACHMENT12) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT13"), Integer::New(isolate, GL_COLOR_ATTACHMENT13) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT14"), Integer::New(isolate, GL_COLOR_ATTACHMENT14) );
+    gl->Set( String::NewFromUtf8(isolate, "COLOR_ATTACHMENT15"), Integer::New(isolate, GL_COLOR_ATTACHMENT15) );
+    gl->Set( String::NewFromUtf8(isolate, "DEPTH_COMPONENT24"), Integer::New(isolate, GL_DEPTH_COMPONENT24) );
 
     gl->Set( String::NewFromUtf8(isolate, "activeTexture"), Function::New(isolate, v8Bind_ActiveTexture) );
     gl->Set( String::NewFromUtf8(isolate, "attachShader"), Function::New(isolate, v8Bind_AttachShader) );
