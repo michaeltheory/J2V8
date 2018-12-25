@@ -1757,7 +1757,7 @@ const char* GLErrorToString(GLenum err) {
 }
 
 #define BAD_PARAMETER_TYPE(x) x->ThrowException(v8::Exception::Error(String::NewFromUtf8(x, "Bad parameter type")))
-bool CHECK_GL_ERRORS = true;
+bool CHECK_GL_ERRORS = false;
 
 #define GL_ERROR_THROW(x) \
 if (CHECK_GL_ERRORS) { \
@@ -4445,6 +4445,13 @@ void AURA_BlitFramebuffer (const v8::FunctionCallbackInfo<v8::Value>& args) {
     GL_ERROR_THROW(isolate);
 }
 
+void AURA_CheckErrors (const v8::FunctionCallbackInfo<v8::Value>& args) {
+    v8::Isolate* isolate = args.GetIsolate();
+    v8::Local<v8::Value> arg0= args[0];
+
+    CHECK_GL_ERRORS = arg0->BooleanValue();
+}
+
 void initializeAura(V8Runtime* runtime, Local<Object> gl) {
     v8::Isolate* isolate = runtime->isolate;
     isolate_ = isolate;
@@ -4941,6 +4948,7 @@ void initializeAura(V8Runtime* runtime, Local<Object> gl) {
     gl->Set( String::NewFromUtf8(isolate, "drawBuffers"), Function::New(isolate, AURA_DrawBuffers) );
     gl->Set( String::NewFromUtf8(isolate, "blitFramebuffer"), Function::New(isolate, AURA_BlitFramebuffer) );
 
+    gl->Set( String::NewFromUtf8(isolate, "_checkErrors"), Function::New(isolate, AURA_CheckErrors) );
 }
 
 
