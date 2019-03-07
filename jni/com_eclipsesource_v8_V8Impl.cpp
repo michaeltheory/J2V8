@@ -1767,6 +1767,12 @@ if (CHECK_GL_ERRORS) { \
   } \
 } \
 
+#ifndef ARRAY_SIZE
+#define ARRAY_SIZE(a)                                   \
+  ((sizeof(a) / sizeof(*(a))) /                         \
+  static_cast<size_t>(!(sizeof(a) % sizeof(*(a)))))
+#endif
+
 void v8Bind_ActiveTexture (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
@@ -4452,6 +4458,31 @@ void AURA_CheckErrors (const v8::FunctionCallbackInfo<v8::Value>& args) {
     CHECK_GL_ERRORS = arg0->BooleanValue();
 }
 
+v8::Persistent<Function> _PromiseRejection;
+
+void AURA_PromiseRejectCallback(v8::PromiseRejectMessage message) {
+    Local<Promise> promise = message.GetPromise();
+    Isolate* isolate = promise->GetIsolate();
+    Local<Value> value = message.GetValue();
+    Local<Integer> event = Integer::New(isolate, message.GetEvent());
+
+    v8::Local<v8::Function> fn = v8::Local<v8::Function>::New(isolate, _PromiseRejection);
+
+    if (value.IsEmpty())
+      value = Undefined(isolate);
+
+    Local<Value> args[] = { event, promise, value };
+
+    fn->Call(v8::Null(isolate), ARRAY_SIZE(args), args);
+}
+
+void AURA_BindPromiseRejection(const FunctionCallbackInfo<Value>& args) {
+    Isolate* isolate = args.GetIsolate();
+    Local<Function> fn = Local<Function>::Cast(args[0]);
+    _PromiseRejection.Reset(isolate, fn);
+    isolate->SetPromiseRejectCallback(AURA_PromiseRejectCallback);
+}
+
 void initializeAura(V8Runtime* runtime, Local<Object> gl) {
     v8::Isolate* isolate = runtime->isolate;
     isolate_ = isolate;
@@ -4949,6 +4980,7 @@ void initializeAura(V8Runtime* runtime, Local<Object> gl) {
     gl->Set( String::NewFromUtf8(isolate, "blitFramebuffer"), Function::New(isolate, AURA_BlitFramebuffer) );
 
     gl->Set( String::NewFromUtf8(isolate, "_checkErrors"), Function::New(isolate, AURA_CheckErrors) );
+    gl->Set( String::NewFromUtf8(isolate, "_bindPromiseRejection"), Function::New(isolate, AURA_BindPromiseRejection) );
 }
 
 
