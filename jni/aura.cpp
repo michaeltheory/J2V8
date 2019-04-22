@@ -3057,7 +3057,7 @@ void initializeAura(V8Runtime* runtime, Local<Object> gl) {
     gl->Set( String::NewFromUtf8(isolate, "UNIFORM_BUFFER"), Number::New(isolate, GL_UNIFORM_BUFFER) );
     gl->Set( String::NewFromUtf8(isolate, "HALF_FLOAT"), Number::New(isolate, GL_HALF_FLOAT) );
     gl->Set( String::NewFromUtf8(isolate, "TEXTURE_EXTERNAL_OES"), Number::New(isolate, 0x8D65) );
-    gl->Set( String::NewFromUtf8(isolate, "UNSIGNED_INT_24_8_OES"), Number::New(isolate, GL_UNSIGNED_INT_24_8_OES) );
+    gl->Set( String::NewFromUtf8(isolate, "UNSIGNED_INT_24_8"), Number::New(isolate, GL_UNSIGNED_INT_24_8) );
     gl->Set( String::NewFromUtf8(isolate, "MAX_TEXTURE_MAX_ANISOTROPY_EXT"), Number::New(isolate, 0x84FF) );
     gl->Set( String::NewFromUtf8(isolate, "TEXTURE_MAX_ANISOTROPY_EXT"), Number::New(isolate, 0x84FE) );
 
