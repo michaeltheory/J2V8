@@ -55,5 +55,5 @@ Here are some projects that use J2V8:
 * [Alicorn](http://alicorn.io)
 
 License
-=====
+======
 The code is published under the terms of the [Eclipse Public License, version 1.0](http://www.eclipse.org/legal/epl-v10.html).
