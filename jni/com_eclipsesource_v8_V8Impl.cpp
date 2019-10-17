@@ -1644,8 +1644,8 @@ JNIEXPORT jlongArray JNICALL Java_com_eclipsesource_v8_V8__1initNewV8Function
 }
 
 JNIEXPORT void JNICALL Java_com_eclipsesource_v8_V8__1initAura
-(JNIEnv *env, jobject, jlong v8RuntimePtr) {
-  Isolate* isolate = SETUP(env, v8RuntimePtr, 0);
+    (JNIEnv *env, jobject, jlong v8RuntimePtr) {
+  // Isolate* isolate = SETUP(env, v8RuntimePtr, 0);
 
   // Local<Object> gl = Object::New(isolate);
   // context->Global()->Set(v8::String::NewFromUtf8(isolate, "_gl"), gl);
