@@ -25,7 +25,7 @@ import java.nio.ByteOrder;
  */
 public class V8ArrayBuffer extends V8Value {
 
-    ByteBuffer byteBuffer;
+    public ByteBuffer byteBuffer;
 
     /**
      * Creates a new V8ArrayBuffer on a given V8Runtime with a

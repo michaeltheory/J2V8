@@ -202,6 +202,7 @@ include_directories(${include_dirs})
 
 # link the necessary libraries
 target_link_libraries(j2v8
+    GLESv3
     v8_monolith
     debug "${j2v8_Debug_libs}"
     optimized "${j2v8_Release_libs}"

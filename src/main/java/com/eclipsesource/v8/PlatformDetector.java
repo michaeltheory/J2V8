@@ -60,9 +60,9 @@ public class PlatformDetector {
                 return Platform.ANDROID;
             }
 
-            if (osName.equals(Platform.UNKNOWN)) {
-                throw new UnsatisfiedLinkError("Unsupported platform/vendor: " + osProperty + " / " + vendorProperty);
-            }
+            // if (osName.equals(Platform.UNKNOWN)) {
+            //     throw new UnsatisfiedLinkError("Unsupported platform/vendor: " + osProperty + " / " + vendorProperty);
+            // }
 
             return osName;
         }
@@ -102,7 +102,7 @@ public class PlatformDetector {
                 return "so";
             }
 
-            throw new UnsatisfiedLinkError("Unsupported platform library-extension for: " + getName());
+            // throw new UnsatisfiedLinkError("Unsupported platform library-extension for: " + getName());
         }
     }
 

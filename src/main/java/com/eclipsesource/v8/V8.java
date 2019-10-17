@@ -162,6 +162,11 @@ public class V8 extends V8Object {
         return runtime;
     }
 
+    public void initAura() {
+        checkThread();
+        _initAura(v8RuntimePtr);
+    }
+
     /**
      * Adds a ReferenceHandler to track when new V8Objects are created.
      *
@@ -1486,6 +1491,8 @@ public class V8 extends V8Object {
     private native long _initNewV8Array(long v8RuntimePtr);
 
     private native long[] _initNewV8Function(long v8RuntimePtr);
+
+    private native void _initAura(long v8RuntimePtr);
 
     private native int _arrayGetSize(long v8RuntimePtr, long arrayHandle);
 
