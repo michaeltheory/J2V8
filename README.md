@@ -1,6 +1,11 @@
 J2V8
 ====
 
+`git pull https://github.com/eclipsesource/J2V8 master`
+
+`source j2v8-cli.sh`
+`build -t android -a arm64 -dkr`
+
 [![Build Status](https://secure.travis-ci.org/eclipsesource/J2V8.png)](http://travis-ci.org/eclipsesource/J2V8)
 [![Maven Central](https://img.shields.io/maven-central/v/com.eclipsesource.j2v8/j2v8.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.eclipsesource.j2v8%22)
 

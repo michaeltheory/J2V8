@@ -73,7 +73,7 @@ def init_buildsteps():
         c.build_j2v8_cpp,
         c.build_j2v8_optimize,
         c.build_j2v8_java,
-        c.build_j2v8_test,
+        # c.build_j2v8_test,
     ])
 
     # atomic steps
@@ -227,7 +227,7 @@ def execute_build(params):
         build_step = immutable.freeze(build_step)
         if (v8_build):
             build_system.build_v8(build_step)
-        else:    
+        else:
             build_system.build(build_step)
 
     # a cross-compile was requested, we just launch the virtualization-environment and then delegate
@@ -270,11 +270,11 @@ def execute_build(params):
 
         if 'v8' in parsed_steps:
             parsed_steps.remove('v8')
-            
+
             # first build V8 and store output
             execute_build_step(cross_compiler, cross_cfg, True)
 
-        
+
         # start the cross-compile
         execute_build_step(cross_compiler, cross_cfg)
 
