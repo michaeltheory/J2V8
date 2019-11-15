@@ -6,7 +6,7 @@
 * http://www.eclipse.org/legal/epl-v10.html
 *
 * Contributors:
-*    EclipseSource - initial API and implementation
+*    EclipseSource - initial API and implementation -- test
 ******************************************************************************/
 #include <jni.h>
 #include <libplatform/libplatform.h>
