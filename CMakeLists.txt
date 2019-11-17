@@ -203,6 +203,9 @@ include_directories(${include_dirs})
 # link the necessary libraries
 target_link_libraries(j2v8
     v8_monolith
+    android
+    log
+    GLESv3
     debug "${j2v8_Debug_libs}"
     optimized "${j2v8_Release_libs}"
     "${libgcc}"

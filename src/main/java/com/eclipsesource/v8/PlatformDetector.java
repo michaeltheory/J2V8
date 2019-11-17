@@ -102,7 +102,7 @@ public class PlatformDetector {
                 return "so";
             }
 
-            // throw new UnsatisfiedLinkError("Unsupported platform library-extension for: " + getName());
+            throw new UnsatisfiedLinkError("Unsupported platform library-extension for: " + getName());
         }
     }
 
