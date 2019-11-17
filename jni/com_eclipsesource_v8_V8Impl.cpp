@@ -4726,6 +4726,7 @@ void initializeAura(V8Runtime* runtime, Local<v8::Context> context, Local<Object
     gl->Set(context, JS_STR("RGB32F"), JS_NUM(GL_RGB32F));
     gl->Set(context, JS_STR("UNIFORM_BUFFER"), JS_NUM(GL_UNIFORM_BUFFER));
     gl->Set(context, JS_STR("HALF_FLOAT"), JS_NUM(GL_HALF_FLOAT));
+    gl->Set(context, JS_STR("TEXTURE_EXTERNAL_OES"), JS_NUM(0x8D65));
     gl->Set(context, JS_STR("UNSIGNED_INT_24_8"), JS_NUM(GL_UNSIGNED_INT_24_8));
     gl->Set(context, JS_STR("MAX_TEXTURE_MAX_ANISOTROPY_EXT"), JS_NUM(0x84FF));
     gl->Set(context, JS_STR("TEXTURE_MAX_ANISOTROPY_EXT"), JS_NUM(0x84FE));
@@ -4747,6 +4748,8 @@ void initializeAura(V8Runtime* runtime, Local<v8::Context> context, Local<Object
     gl->Set(context, JS_STR("COLOR_ATTACHMENT14"), JS_INT(GL_COLOR_ATTACHMENT14));
     gl->Set(context, JS_STR("COLOR_ATTACHMENT15"), JS_INT(GL_COLOR_ATTACHMENT15));
     gl->Set(context, JS_STR("DEPTH_COMPONENT24"), JS_INT(GL_DEPTH_COMPONENT24));
+    gl->Set(context, JS_STR("MAX_TEXTURE_MAX_ANISOTROPY_EXT"), JS_INT(0x84FF));
+    gl->Set(context, JS_STR("TEXTURE_MAX_ANISOTROPY_EXT"), JS_INT(0x84FE));
 
     gl->Set(context, JS_STR("_checkErrors"), FUNC(AURA_CheckErrors));
     gl->Set(context, JS_STR("_bindPromiseRejection"), FUNC(AURA_BindPromiseRejection));
