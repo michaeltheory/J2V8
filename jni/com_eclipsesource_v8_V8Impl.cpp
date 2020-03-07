@@ -4748,6 +4748,8 @@ void initializeAura(V8Runtime* runtime, Local<v8::Context> context, Local<Object
     gl->Set(context, JS_STR("COLOR_ATTACHMENT14"), JS_INT(GL_COLOR_ATTACHMENT14));
     gl->Set(context, JS_STR("COLOR_ATTACHMENT15"), JS_INT(GL_COLOR_ATTACHMENT15));
     gl->Set(context, JS_STR("DEPTH_COMPONENT24"), JS_INT(GL_DEPTH_COMPONENT24));
+    gl->Set(context, JS_STR("DEPTH_STENCIL_ATTACHMENT"), JS_INT(GL_DEPTH_STENCIL_ATTACHMENT));
+    gl->Set(context, JS_STR("DEPTH_STENCIL"), JS_INT(DEPTH_STENCIL));
     gl->Set(context, JS_STR("MAX_TEXTURE_MAX_ANISOTROPY_EXT"), JS_INT(0x84FF));
     gl->Set(context, JS_STR("TEXTURE_MAX_ANISOTROPY_EXT"), JS_INT(0x84FE));
 
