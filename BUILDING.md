@@ -6,7 +6,7 @@
 4. `nodejs diff apply` to apply the required modifications to the Node.js source code
 5. start the desired J2V8 build either via `build -i` or `build ...args` (see below for details)
 
-- `build -t android -a arm64 -dkr`
+- `C:\Python27\python.exe build.py build -t android -a arm64 -dkr`
 - `build -t android -a arm -dkr`
 
 # Build-System CLI
@@ -57,7 +57,7 @@ Build for Debian/Ubuntu Linux x64 on the host-system:<br/>
 `build -t linux -a x64`
 
 Build for Debian/Ubuntu Linux x64 using Docker:<br/>
-`build -t linux -a x64 -dkr`
+`C:\Python27\python.exe build.py -t linux -a x64 -dkr`
 
 Build for Alpine-Linux x64 using Docker and Node.js features included:<br/>
 `build -v alpine -t linux -a x64 -dkr -ne`

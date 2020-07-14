@@ -35,3 +35,4 @@ test-mockup-os-release
 
 # generated dependency packages
 *.tar.*
+v8.out/
