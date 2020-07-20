@@ -1776,8 +1776,10 @@ if (CHECK_GL_ERRORS) { \
 void v8Bind_ActiveTexture (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glActiveTexture((GLenum)arg0->Int32Value());
@@ -1788,8 +1790,10 @@ void v8Bind_AttachShader (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glAttachShader((GLuint)arg0->Int32Value(),(GLuint)arg1->Int32Value());
@@ -1801,8 +1805,10 @@ void v8Bind_BindAttribLocation (const v8::FunctionCallbackInfo<v8::Value>& args)
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsString()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glBindAttribLocation((GLuint)arg0->Int32Value(),(GLuint)arg1->Int32Value(),*String::Utf8Value(arg2));
@@ -1813,8 +1819,10 @@ void v8Bind_BindBuffer (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glBindBuffer((GLenum)arg0->Int32Value(),(GLuint)arg1->Int32Value());
@@ -1825,8 +1833,10 @@ void v8Bind_BindFramebuffer (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glBindFramebuffer((GLenum)arg0->Int32Value(),(GLuint)arg1->Int32Value());
@@ -1837,8 +1847,10 @@ void v8Bind_BindRenderbuffer (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glBindRenderbuffer((GLenum)arg0->Int32Value(),(GLuint)arg1->Int32Value());
@@ -1849,8 +1861,10 @@ void v8Bind_BindTexture (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLenum type = (GLenum)arg0->Int32Value();
@@ -1866,8 +1880,10 @@ void v8Bind_BlendColor (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsNumber() || !arg1->IsNumber() || !arg2->IsNumber() || !arg3->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glBlendColor((GLclampf)arg0->NumberValue(),(GLclampf)arg1->NumberValue(),(GLclampf)arg2->NumberValue(),(GLclampf)arg3->NumberValue());
@@ -1877,8 +1893,10 @@ void v8Bind_BlendColor (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_BlendEquation (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glBlendEquation((GLenum)arg0->Int32Value());
@@ -1889,8 +1907,10 @@ void v8Bind_BlendEquationSeparate (const v8::FunctionCallbackInfo<v8::Value>& ar
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glBlendEquationSeparate((GLenum)arg0->Int32Value(),(GLenum)arg1->Int32Value());
@@ -1901,8 +1921,10 @@ void v8Bind_BlendFunc (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glBlendFunc((GLenum)arg0->Int32Value(),(GLenum)arg1->Int32Value());
@@ -1915,8 +1937,10 @@ void v8Bind_BlendFuncSeparate (const v8::FunctionCallbackInfo<v8::Value>& args) 
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glBlendFuncSeparate((GLenum)arg0->Int32Value(),(GLenum)arg1->Int32Value(),(GLenum)arg2->Int32Value(),(GLenum)arg3->Int32Value());
@@ -1929,8 +1953,10 @@ void v8Bind_BufferData (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull()) || !arg3->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLvoid* ptr0= ( arg2->IsTypedArray() ) ?
@@ -1947,8 +1973,10 @@ void v8Bind_BufferSubData (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !(arg3->IsTypedArray() || arg3->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLvoid* ptr0= ( arg3->IsTypedArray() ) ?
@@ -1962,8 +1990,10 @@ void v8Bind_BufferSubData (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_CheckFramebufferStatus (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLenum ret=  glCheckFramebufferStatus((GLenum)arg0->Int32Value());
@@ -1974,8 +2004,10 @@ void v8Bind_CheckFramebufferStatus (const v8::FunctionCallbackInfo<v8::Value>& a
 void v8Bind_Clear (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glClear((GLbitfield)arg0->Int32Value());
@@ -1988,8 +2020,10 @@ void v8Bind_ClearColor (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsNumber() || !arg1->IsNumber() || !arg2->IsNumber() || !arg3->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glClearColor((GLclampf)arg0->NumberValue(),(GLclampf)arg1->NumberValue(),(GLclampf)arg2->NumberValue(),(GLclampf)arg3->NumberValue());
@@ -1999,8 +2033,10 @@ void v8Bind_ClearColor (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_ClearDepthf (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glClearDepthf((GLclampf)arg0->NumberValue());
@@ -2010,8 +2046,10 @@ void v8Bind_ClearDepthf (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_ClearStencil (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glClearStencil((GLint)arg0->Int32Value());
@@ -2024,8 +2062,10 @@ void v8Bind_ColorMask (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsBoolean() || !arg1->IsBoolean() || !arg2->IsBoolean() || !arg3->IsBoolean()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glColorMask((GLboolean)arg0->BooleanValue(),(GLboolean)arg1->BooleanValue(),(GLboolean)arg2->BooleanValue(),(GLboolean)arg3->BooleanValue());
@@ -2035,8 +2075,10 @@ void v8Bind_ColorMask (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_CompileShader (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glCompileShader((GLuint)arg0->Int32Value());
@@ -2053,8 +2095,10 @@ void v8Bind_CompressedTexImage2D (const v8::FunctionCallbackInfo<v8::Value>& arg
     v8::Local<v8::Value> arg5= args[5];
     v8::Local<v8::Value> arg6= args[6];
     v8::Local<v8::Value> arg7= args[7];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32() || !arg4->IsInt32() || !arg5->IsInt32() || !arg6->IsInt32() || !(arg7->IsTypedArray() || arg7->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLvoid* ptr0= ( arg7->IsTypedArray() ) ?
@@ -2076,8 +2120,10 @@ void v8Bind_CompressedTexSubImage2D (const v8::FunctionCallbackInfo<v8::Value>& 
     v8::Local<v8::Value> arg6= args[6];
     v8::Local<v8::Value> arg7= args[7];
     v8::Local<v8::Value> arg8= args[8];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32() || !arg4->IsInt32() || !arg5->IsInt32() || !arg6->IsInt32() || !arg7->IsInt32() || !(arg8->IsTypedArray() || arg8->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLvoid* ptr0= ( arg8->IsTypedArray() ) ?
@@ -2098,8 +2144,10 @@ void v8Bind_CopyTexImage2D (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg5= args[5];
     v8::Local<v8::Value> arg6= args[6];
     v8::Local<v8::Value> arg7= args[7];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32() || !arg4->IsInt32() || !arg5->IsInt32() || !arg6->IsInt32() || !arg7->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glCopyTexImage2D((GLenum)arg0->Int32Value(),(GLint)arg1->Int32Value(),(GLenum)arg2->Int32Value(),(GLint)arg3->Int32Value(),(GLint)arg4->Int32Value(),(GLsizei)arg5->Int32Value(),(GLsizei)arg6->Int32Value(),(GLint)arg7->Int32Value());
@@ -2116,8 +2164,10 @@ void v8Bind_CopyTexSubImage2D (const v8::FunctionCallbackInfo<v8::Value>& args) 
     v8::Local<v8::Value> arg5= args[5];
     v8::Local<v8::Value> arg6= args[6];
     v8::Local<v8::Value> arg7= args[7];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32() || !arg4->IsInt32() || !arg5->IsInt32() || !arg6->IsInt32() || !arg7->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glCopyTexSubImage2D((GLenum)arg0->Int32Value(),(GLint)arg1->Int32Value(),(GLint)arg2->Int32Value(),(GLint)arg3->Int32Value(),(GLint)arg4->Int32Value(),(GLint)arg5->Int32Value(),(GLsizei)arg6->Int32Value(),(GLsizei)arg7->Int32Value());
@@ -2134,8 +2184,10 @@ void v8Bind_CreateProgram (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_CreateShader (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLuint ret=  glCreateShader((GLenum)arg0->Int32Value());
@@ -2146,8 +2198,10 @@ void v8Bind_CreateShader (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_CullFace (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glCullFace((GLenum)arg0->Int32Value());
@@ -2158,8 +2212,10 @@ void v8Bind_DeleteBuffers (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLuint* ptr0= ( arg1->IsTypedArray() ) ?
@@ -2174,8 +2230,10 @@ void v8Bind_DeleteFramebuffers (const v8::FunctionCallbackInfo<v8::Value>& args)
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLuint* ptr0= ( arg1->IsTypedArray() ) ?
@@ -2189,8 +2247,10 @@ void v8Bind_DeleteFramebuffers (const v8::FunctionCallbackInfo<v8::Value>& args)
 void v8Bind_DeleteProgram (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glDeleteProgram((GLuint)arg0->Int32Value());
@@ -2201,8 +2261,10 @@ void v8Bind_DeleteRenderbuffers (const v8::FunctionCallbackInfo<v8::Value>& args
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLuint* ptr0= ( arg1->IsTypedArray() ) ?
@@ -2216,8 +2278,10 @@ void v8Bind_DeleteRenderbuffers (const v8::FunctionCallbackInfo<v8::Value>& args
 void v8Bind_DeleteShader (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glDeleteShader((GLuint)arg0->Int32Value());
@@ -2228,8 +2292,10 @@ void v8Bind_DeleteTextures (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLuint* ptr0= ( arg1->IsTypedArray() ) ?
@@ -2243,8 +2309,10 @@ void v8Bind_DeleteTextures (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_DepthFunc (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glDepthFunc((GLenum)arg0->Int32Value());
@@ -2266,8 +2334,10 @@ void v8Bind_DepthRangef (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsNumber() || !arg1->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glDepthRangef((GLclampf)arg0->NumberValue(),(GLclampf)arg1->NumberValue());
@@ -2278,8 +2348,10 @@ void v8Bind_DetachShader (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glDetachShader((GLuint)arg0->Int32Value(),(GLuint)arg1->Int32Value());
@@ -2289,8 +2361,10 @@ void v8Bind_DetachShader (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_Disable (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glDisable((GLenum)arg0->Int32Value());
@@ -2300,8 +2374,10 @@ void v8Bind_Disable (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_DisableVertexAttribArray (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glDisableVertexAttribArray((GLuint)arg0->Int32Value());
@@ -2313,8 +2389,10 @@ void v8Bind_DrawArrays (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glDrawArrays((GLenum)arg0->Int32Value(),(GLint)arg1->Int32Value(),(GLsizei)arg2->Int32Value());
@@ -2327,8 +2405,10 @@ void v8Bind_DrawElements (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glDrawElements((GLenum)arg0->Int32Value(),(GLsizei)arg1->Int32Value(),(GLenum)arg2->Int32Value(),(GLvoid*)arg3->Int32Value());
@@ -2338,8 +2418,10 @@ void v8Bind_DrawElements (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_Enable (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glEnable((GLenum)arg0->Int32Value());
@@ -2349,8 +2431,10 @@ void v8Bind_Enable (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_EnableVertexAttribArray (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glEnableVertexAttribArray((GLuint)arg0->Int32Value());
@@ -2375,8 +2459,10 @@ void v8Bind_FramebufferRenderbuffer (const v8::FunctionCallbackInfo<v8::Value>& 
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glFramebufferRenderbuffer((GLenum)arg0->Int32Value(),(GLenum)arg1->Int32Value(),(GLenum)arg2->Int32Value(),(GLuint)arg3->Int32Value());
@@ -2390,8 +2476,10 @@ void v8Bind_FramebufferTexture2D (const v8::FunctionCallbackInfo<v8::Value>& arg
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
     v8::Local<v8::Value> arg4= args[4];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32() || !arg4->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glFramebufferTexture2D((GLenum)arg0->Int32Value(),(GLenum)arg1->Int32Value(),(GLenum)arg2->Int32Value(),(GLuint)arg3->Int32Value(),(GLint)arg4->Int32Value());
@@ -2401,8 +2489,10 @@ void v8Bind_FramebufferTexture2D (const v8::FunctionCallbackInfo<v8::Value>& arg
 void v8Bind_FrontFace (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glFrontFace((GLenum)arg0->Int32Value());
@@ -2413,8 +2503,10 @@ void v8Bind_GenBuffers (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLuint* ptr0= ( arg1->IsTypedArray() ) ?
@@ -2428,8 +2520,10 @@ void v8Bind_GenBuffers (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_GenerateMipmap (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glGenerateMipmap((GLenum)arg0->Int32Value());
@@ -2440,8 +2534,10 @@ void v8Bind_GenFramebuffers (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLuint* ptr0= ( arg1->IsTypedArray() ) ?
@@ -2456,8 +2552,10 @@ void v8Bind_GenRenderbuffers (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLuint* ptr0= ( arg1->IsTypedArray() ) ?
@@ -2472,8 +2570,10 @@ void v8Bind_GenTextures (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLuint* ptr0= ( arg1->IsTypedArray() ) ?
@@ -2488,8 +2588,10 @@ void v8Bind_GetActiveAttrib (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() ) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     int bufSize = 512;
@@ -2538,9 +2640,10 @@ void v8Bind_GetActiveUniform (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
-
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() ) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     int bufSize = 512;
@@ -2589,8 +2692,10 @@ void v8Bind_GetAttachedShaders (const v8::FunctionCallbackInfo<v8::Value>& args)
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull()) || !(arg3->IsTypedArray() || arg3->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLsizei* ptr0= ( arg2->IsTypedArray() ) ?
@@ -2608,8 +2713,10 @@ void v8Bind_GetAttribLocation (const v8::FunctionCallbackInfo<v8::Value>& args) 
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsString()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLint ret=  glGetAttribLocation((GLuint)arg0->Int32Value(),*String::Utf8Value(arg1));
@@ -2621,8 +2728,10 @@ void v8Bind_GetBooleanv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLboolean* ptr0= ( arg1->IsTypedArray() ) ?
@@ -2638,8 +2747,10 @@ void v8Bind_GetBufferParameteriv (const v8::FunctionCallbackInfo<v8::Value>& arg
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLint* ptr0= ( arg2->IsTypedArray() ) ?
@@ -2661,8 +2772,10 @@ void v8Bind_GetFloatv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLfloat* ptr0= ( arg1->IsTypedArray() ) ?
@@ -2679,8 +2792,10 @@ void v8Bind_GetFramebufferAttachmentParameteriv (const v8::FunctionCallbackInfo<
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !(arg3->IsTypedArray() || arg3->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLint* ptr0= ( arg3->IsTypedArray() ) ?
@@ -2695,8 +2810,10 @@ void v8Bind_GetIntegerv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLint* ptr0= ( arg1->IsTypedArray() ) ?
@@ -2713,8 +2830,10 @@ void v8Bind_GetProgramiv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLint* ptr0= ( arg2->IsTypedArray() ) ?
@@ -2728,8 +2847,10 @@ void v8Bind_GetProgramiv (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_GetProgramInfoLog (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     int len = 1024;
@@ -2747,8 +2868,10 @@ void v8Bind_GetRenderbufferParameteriv (const v8::FunctionCallbackInfo<v8::Value
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLint* ptr0= ( arg2->IsTypedArray() ) ?
@@ -2764,8 +2887,10 @@ void v8Bind_GetShaderiv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLint* ptr0= ( arg2->IsTypedArray() ) ?
@@ -2779,8 +2904,10 @@ void v8Bind_GetShaderiv (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_GetShaderInfoLog (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() ) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     int len = 1024;
@@ -2797,8 +2924,10 @@ void v8Bind_GetShaderPrecisionFormat (const v8::FunctionCallbackInfo<v8::Value>&
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLint precision[2];
@@ -2823,8 +2952,10 @@ void v8Bind_GetShaderSource (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull()) || !arg3->IsString()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLsizei* ptr0= ( arg2->IsTypedArray() ) ?
@@ -2838,8 +2969,10 @@ void v8Bind_GetShaderSource (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_GetString (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLubyte* ret=  glGetString((GLenum)arg0->Int32Value());
@@ -2852,8 +2985,10 @@ void v8Bind_GetTexParameterfv (const v8::FunctionCallbackInfo<v8::Value>& args) 
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLfloat* ptr0= ( arg2->IsTypedArray() ) ?
@@ -2869,8 +3004,10 @@ void v8Bind_GetTexParameteriv (const v8::FunctionCallbackInfo<v8::Value>& args) 
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLint* ptr0= ( arg2->IsTypedArray() ) ?
@@ -2886,8 +3023,10 @@ void v8Bind_GetUniformfv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLfloat* ptr0= ( arg2->IsTypedArray() ) ?
@@ -2903,8 +3042,10 @@ void v8Bind_GetUniformiv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLint* ptr0= ( arg2->IsTypedArray() ) ?
@@ -2919,8 +3060,10 @@ void v8Bind_GetUniformLocation (const v8::FunctionCallbackInfo<v8::Value>& args)
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsString()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLint ret=  glGetUniformLocation((GLuint)arg0->Int32Value(),*String::Utf8Value(arg1));
@@ -2933,8 +3076,10 @@ void v8Bind_GetVertexAttribfv (const v8::FunctionCallbackInfo<v8::Value>& args) 
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLfloat* ptr0= ( arg2->IsTypedArray() ) ?
@@ -2950,8 +3095,10 @@ void v8Bind_GetVertexAttribiv (const v8::FunctionCallbackInfo<v8::Value>& args) 
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLint* ptr0= ( arg2->IsTypedArray() ) ?
@@ -2967,8 +3114,10 @@ void v8Bind_GetVertexAttribPointerv (const v8::FunctionCallbackInfo<v8::Value>& 
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsTypedArray()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     void *ptr0= v8::Local<v8::TypedArray>::Cast(arg2)->Buffer()->GetContents().Data();
@@ -2981,8 +3130,10 @@ void v8Bind_Hint (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glHint((GLenum)arg0->Int32Value(),(GLenum)arg1->Int32Value());
@@ -2992,8 +3143,10 @@ void v8Bind_Hint (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_IsBuffer (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLboolean ret=  glIsBuffer((GLuint)arg0->Int32Value());
@@ -3004,8 +3157,10 @@ void v8Bind_IsBuffer (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_IsEnabled (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLboolean ret=  glIsEnabled((GLenum)arg0->Int32Value());
@@ -3016,8 +3171,10 @@ void v8Bind_IsEnabled (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_IsFramebuffer (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLboolean ret=  glIsFramebuffer((GLuint)arg0->Int32Value());
@@ -3028,8 +3185,10 @@ void v8Bind_IsFramebuffer (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_IsProgram (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLboolean ret=  glIsProgram((GLuint)arg0->Int32Value());
@@ -3040,8 +3199,10 @@ void v8Bind_IsProgram (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_IsRenderbuffer (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLboolean ret=  glIsRenderbuffer((GLuint)arg0->Int32Value());
@@ -3052,8 +3213,10 @@ void v8Bind_IsRenderbuffer (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_IsShader (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLboolean ret=  glIsShader((GLuint)arg0->Int32Value());
@@ -3064,8 +3227,10 @@ void v8Bind_IsShader (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_IsTexture (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLboolean ret=  glIsTexture((GLuint)arg0->Int32Value());
@@ -3076,8 +3241,10 @@ void v8Bind_IsTexture (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_LineWidth (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glLineWidth((GLfloat)arg0->NumberValue());
@@ -3087,8 +3254,10 @@ void v8Bind_LineWidth (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_LinkProgram (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glLinkProgram((GLuint)arg0->Int32Value());
@@ -3099,8 +3268,10 @@ void v8Bind_PixelStorei (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLenum pname = args[0]->Int32Value();
@@ -3137,8 +3308,10 @@ void v8Bind_PolygonOffset (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsNumber() || !arg1->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glPolygonOffset((GLfloat)arg0->NumberValue(),(GLfloat)arg1->NumberValue());
@@ -3154,8 +3327,10 @@ void v8Bind_ReadPixels (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg4= args[4];
     v8::Local<v8::Value> arg5= args[5];
     v8::Local<v8::Value> arg6= args[6];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32() || !arg4->IsInt32() || !arg5->IsInt32() || !(arg6->IsTypedArray() || arg6->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     GLvoid* ptr0= ( arg6->IsTypedArray() ) ?
@@ -3178,8 +3353,10 @@ void v8Bind_RenderbufferStorage (const v8::FunctionCallbackInfo<v8::Value>& args
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glRenderbufferStorage((GLenum)arg0->Int32Value(),(GLenum)arg1->Int32Value(),(GLsizei)arg2->Int32Value(),(GLsizei)arg3->Int32Value());
@@ -3190,8 +3367,10 @@ void v8Bind_SampleCoverage (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsNumber() || !arg1->IsBoolean()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glSampleCoverage((GLclampf)arg0->NumberValue(),(GLboolean)arg1->BooleanValue());
@@ -3204,8 +3383,10 @@ void v8Bind_Scissor (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32()) {
 //    BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glScissor((GLint)arg0->Int32Value(),(GLint)arg1->Int32Value(),(GLsizei)arg2->Int32Value(),(GLsizei)arg3->Int32Value());
@@ -3219,8 +3400,10 @@ void v8Bind_ShaderBinary (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
     v8::Local<v8::Value> arg4= args[4];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull()) || !arg2->IsInt32() || !(arg3->IsTypedArray() || arg3->IsNull()) || !arg4->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLuint* ptr0= ( arg1->IsTypedArray() ) ?
@@ -3238,8 +3421,10 @@ void v8Bind_ShaderSource (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsString()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     String::Utf8Value srcCode(arg1->ToString());
@@ -3255,8 +3440,10 @@ void v8Bind_StencilFunc (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glStencilFunc((GLenum)arg0->Int32Value(),(GLint)arg1->Int32Value(),(GLuint)arg2->Int32Value());
@@ -3269,8 +3456,10 @@ void v8Bind_StencilFuncSeparate (const v8::FunctionCallbackInfo<v8::Value>& args
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glStencilFuncSeparate((GLenum)arg0->Int32Value(),(GLenum)arg1->Int32Value(),(GLint)arg2->Int32Value(),(GLuint)arg3->Int32Value());
@@ -3280,8 +3469,10 @@ void v8Bind_StencilFuncSeparate (const v8::FunctionCallbackInfo<v8::Value>& args
 void v8Bind_StencilMask (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glStencilMask((GLuint)arg0->Int32Value());
@@ -3292,8 +3483,10 @@ void v8Bind_StencilMaskSeparate (const v8::FunctionCallbackInfo<v8::Value>& args
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glStencilMaskSeparate((GLenum)arg0->Int32Value(),(GLuint)arg1->Int32Value());
@@ -3305,8 +3498,10 @@ void v8Bind_StencilOp (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glStencilOp((GLenum)arg0->Int32Value(),(GLenum)arg1->Int32Value(),(GLenum)arg2->Int32Value());
@@ -3319,8 +3514,10 @@ void v8Bind_StencilOpSeparate (const v8::FunctionCallbackInfo<v8::Value>& args) 
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glStencilOpSeparate((GLenum)arg0->Int32Value(),(GLenum)arg1->Int32Value(),(GLenum)arg2->Int32Value(),(GLenum)arg3->Int32Value());
@@ -3332,8 +3529,10 @@ void v8Bind_TexParameterf (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glTexParameterf((GLenum)arg0->Int32Value(),(GLenum)arg1->Int32Value(),(GLfloat)arg2->NumberValue());
@@ -3345,8 +3544,10 @@ void v8Bind_TexParameterfv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLfloat* ptr0= ( arg2->IsTypedArray() ) ?
@@ -3362,8 +3563,10 @@ void v8Bind_TexParameteri (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glTexParameteri((GLenum)arg0->Int32Value(),(GLenum)arg1->Int32Value(),(GLint)arg2->Int32Value());
@@ -3375,8 +3578,10 @@ void v8Bind_TexParameteriv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !(arg2->IsTypedArray() || arg2->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLint* ptr0= ( arg2->IsTypedArray() ) ?
@@ -3398,8 +3603,10 @@ void v8Bind_TexSubImage2D (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg6= args[6];
     v8::Local<v8::Value> arg7= args[7];
     v8::Local<v8::Value> arg8= args[8];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32() || !arg4->IsInt32() || !arg5->IsInt32() || !arg6->IsInt32() || !arg7->IsInt32() || !(arg8->IsTypedArray() || arg8->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLvoid* ptr0= ( arg8->IsTypedArray() ) ?
@@ -3414,8 +3621,10 @@ void v8Bind_Uniform1f (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glUniform1f((GLint)arg0->Int32Value(),(GLfloat)arg1->NumberValue());
@@ -3426,8 +3635,10 @@ void v8Bind_Uniform1fv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     if ( arg1->IsTypedArray() ) {
@@ -3456,8 +3667,10 @@ void v8Bind_Uniform1i (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glUniform1i((GLint)arg0->Int32Value(),(GLint)arg1->Int32Value());
@@ -3468,8 +3681,10 @@ void v8Bind_Uniform1iv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     if ( arg1->IsTypedArray() ) {
@@ -3499,8 +3714,10 @@ void v8Bind_Uniform2f (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsNumber() || !arg2->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glUniform2f((GLint)arg0->Int32Value(),(GLfloat)arg1->NumberValue(),(GLfloat)arg2->NumberValue());
@@ -3511,8 +3728,10 @@ void v8Bind_Uniform2fv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     if ( arg1->IsTypedArray() ) {
@@ -3544,8 +3763,10 @@ void v8Bind_Uniform2i (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glUniform2i((GLint)arg0->Int32Value(),(GLint)arg1->Int32Value(),(GLint)arg2->Int32Value());
@@ -3556,8 +3777,10 @@ void v8Bind_Uniform2iv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     if ( arg1->IsTypedArray() ) {
@@ -3589,8 +3812,10 @@ void v8Bind_Uniform3f (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsNumber() || !arg2->IsNumber() || !arg3->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glUniform3f((GLint)arg0->Int32Value(),(GLfloat)arg1->NumberValue(),(GLfloat)arg2->NumberValue(),(GLfloat)arg3->NumberValue());
@@ -3601,8 +3826,10 @@ void v8Bind_Uniform3fv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     if ( arg1->IsTypedArray() ) {
@@ -3635,8 +3862,10 @@ void v8Bind_Uniform3i (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glUniform3i((GLint)arg0->Int32Value(),(GLint)arg1->Int32Value(),(GLint)arg2->Int32Value(),(GLint)arg3->Int32Value());
@@ -3647,8 +3876,10 @@ void v8Bind_Uniform3iv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     if ( arg1->IsTypedArray() ) {
@@ -3682,8 +3913,10 @@ void v8Bind_Uniform4f (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
     v8::Local<v8::Value> arg4= args[4];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsNumber() || !arg2->IsNumber() || !arg3->IsNumber() || !arg4->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glUniform4f((GLint)arg0->Int32Value(),(GLfloat)arg1->NumberValue(),(GLfloat)arg2->NumberValue(),(GLfloat)arg3->NumberValue(),(GLfloat)arg4->NumberValue());
@@ -3694,8 +3927,10 @@ void v8Bind_Uniform4fv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     if ( arg1->IsTypedArray() ) {
@@ -3730,8 +3965,10 @@ void v8Bind_Uniform4i (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
     v8::Local<v8::Value> arg4= args[4];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsInt32() || !arg4->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glUniform4i((GLint)arg0->Int32Value(),(GLint)arg1->Int32Value(),(GLint)arg2->Int32Value(),(GLint)arg3->Int32Value(),(GLint)arg4->Int32Value());
@@ -3742,8 +3979,10 @@ void v8Bind_Uniform4iv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     if ( arg1->IsTypedArray() ) {
@@ -3777,8 +4016,10 @@ void v8Bind_UniformMatrix2fv (const v8::FunctionCallbackInfo<v8::Value>& args) {
 
     v8::Local<v8::Value> arg2= args[1];
     v8::Local<v8::Value> arg3= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg2->IsBoolean() || !(arg3->IsTypedArray() || arg3->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLfloat* ptr0= ( arg3->IsTypedArray() ) ?
@@ -3795,8 +4036,10 @@ void v8Bind_UniformMatrix3fv (const v8::FunctionCallbackInfo<v8::Value>& args) {
 
     v8::Local<v8::Value> arg2= args[1];
     v8::Local<v8::Value> arg3= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()  || !arg2->IsBoolean() || !(arg3->IsTypedArray() || arg3->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLfloat* ptr0= ( arg3->IsTypedArray() ) ?
@@ -3813,8 +4056,10 @@ void v8Bind_UniformMatrix4fv (const v8::FunctionCallbackInfo<v8::Value>& args) {
 
     v8::Local<v8::Value> arg2= args[1];
     v8::Local<v8::Value> arg3= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg2->IsBoolean() || !(arg3->IsTypedArray() || arg3->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLfloat* ptr0= ( arg3->IsTypedArray() ) ?
@@ -3828,8 +4073,10 @@ void v8Bind_UniformMatrix4fv (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_UseProgram (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glUseProgram((GLuint)arg0->Int32Value());
@@ -3839,8 +4086,10 @@ void v8Bind_UseProgram (const v8::FunctionCallbackInfo<v8::Value>& args) {
 void v8Bind_ValidateProgram (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glValidateProgram((GLuint)arg0->Int32Value());
@@ -3851,8 +4100,10 @@ void v8Bind_VertexAttrib1f (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glVertexAttrib1f((GLuint)arg0->Int32Value(),(GLfloat)arg1->NumberValue());
@@ -3863,8 +4114,10 @@ void v8Bind_VertexAttrib1fv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLfloat* ptr0= ( arg1->IsTypedArray() ) ?
@@ -3880,8 +4133,10 @@ void v8Bind_VertexAttrib2f (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsNumber() || !arg2->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glVertexAttrib2f((GLuint)arg0->Int32Value(),(GLfloat)arg1->NumberValue(),(GLfloat)arg2->NumberValue());
@@ -3892,8 +4147,10 @@ void v8Bind_VertexAttrib2fv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLfloat* ptr0= ( arg1->IsTypedArray() ) ?
@@ -3910,8 +4167,10 @@ void v8Bind_VertexAttrib3f (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg1= args[1];
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsNumber() || !arg2->IsNumber() || !arg3->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glVertexAttrib3f((GLuint)arg0->Int32Value(),(GLfloat)arg1->NumberValue(),(GLfloat)arg2->NumberValue(),(GLfloat)arg3->NumberValue());
@@ -3922,8 +4181,10 @@ void v8Bind_VertexAttrib3fv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLfloat* ptr0= ( arg1->IsTypedArray() ) ?
@@ -3941,8 +4202,10 @@ void v8Bind_VertexAttrib4f (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Local<v8::Value> arg2= args[2];
     v8::Local<v8::Value> arg3= args[3];
     v8::Local<v8::Value> arg4= args[4];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsNumber() || !arg2->IsNumber() || !arg3->IsNumber() || !arg4->IsNumber()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glVertexAttrib4f((GLuint)arg0->Int32Value(),(GLfloat)arg1->NumberValue(),(GLfloat)arg2->NumberValue(),(GLfloat)arg3->NumberValue(),(GLfloat)arg4->NumberValue());
@@ -3953,8 +4216,10 @@ void v8Bind_VertexAttrib4fv (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::Isolate* isolate = args.GetIsolate();
     v8::Local<v8::Value> arg0= args[0];
     v8::Local<v8::Value> arg1= args[1];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !(arg1->IsTypedArray() || arg1->IsNull())) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     const GLfloat* ptr0= ( arg1->IsTypedArray() ) ?
@@ -3973,8 +4238,10 @@ void v8Bind_VertexAttribPointer (const v8::FunctionCallbackInfo<v8::Value>& args
     v8::Local<v8::Value> arg3= args[3];
     v8::Local<v8::Value> arg4= args[4];
     v8::Local<v8::Value> arg5= args[5];
+    if (CHECK_GL_ERRORS) {
     if(!arg0->IsInt32() || !arg1->IsInt32() || !arg2->IsInt32() || !arg3->IsBoolean() || !arg4->IsInt32() || !arg5->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
+    }
     }
 
     glVertexAttribPointer((GLuint)arg0->Int32Value(),(GLint)arg1->Int32Value(),(GLenum)arg2->Int32Value(),(GLboolean)arg3->BooleanValue(),(GLsizei)arg4->Int32Value(),(GLvoid*)arg5->Int32Value());
@@ -4002,7 +4269,6 @@ void v8Bind_GetParameter (const v8::FunctionCallbackInfo<v8::Value>& args) {
     v8::HandleScope hs(isolate);
 
     v8::Local<v8::Value> arg0= args[0];
-
     if(!arg0->IsInt32()) {
         BAD_PARAMETER_TYPE(isolate);
     }
